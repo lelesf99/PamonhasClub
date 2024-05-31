@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=19 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
 [ext_resource type="PackedScene" uid="uid://3i5hacr4eisd" path="res://scenes/Player.tscn" id="2_on077"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ccv0d5hoeta2h" path="res://assets/mesaPamonha.png" id="9_0ulpa"]
 [ext_resource type="PackedScene" uid="uid://4lod2j423xb1" path="res://scenes/objetos/fogao.tscn" id="10_o56xx"]
 [ext_resource type="PackedScene" uid="uid://bls3mqwwkj1mt" path="res://scenes/objetos/bancadaEstufa.tscn" id="11_3vhdu"]
+[ext_resource type="PackedScene" uid="uid://djtahmdtbi3oo" path="res://scenes/objetos/estufa.tscn" id="12_kvb1p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
 
@@ -5050,7 +5051,7 @@ texture = ExtResource("9_0ulpa")
 position = Vector2(-160, -308)
 
 [node name="Player" parent="." instance=ExtResource("2_on077")]
-position = Vector2(121, -23)
+position = Vector2(101, -20)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 rotation = 0.915316
@@ -5072,3 +5073,6 @@ shape = SubResource("CapsuleShape2D_gndns")
 
 [node name="bancada" parent="." instance=ExtResource("11_3vhdu")]
 position = Vector2(-26, 38)
+
+[node name="estufa" parent="." instance=ExtResource("12_kvb1p")]
+position = Vector2(-92, 15)

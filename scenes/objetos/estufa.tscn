@@ -12,8 +12,8 @@
 target_position = Vector2(0, -62)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(4, -1.25)
-scale = Vector2(1.05063, 1.05556)
+position = Vector2(4, -1)
+scale = Vector2(1.05063, 1.06667)
 texture = ExtResource("1_kq58c")
 vframes = 13
 frame = 12
