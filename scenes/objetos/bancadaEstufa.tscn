@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bls3mqwwkj1mt"]
+
+[ext_resource type="Texture2D" uid="uid://bs1evvkdbh8vr" path="res://assets/bancada.png" id="1_pnmff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7l5d"]
+size = Vector2(446, 58)
+
+[node name="bancadaEstufa" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Bancada" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(13.5, 2)
+scale = Vector2(0.796009, 0.82)
+texture = ExtResource("1_pnmff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(15.092, -11.94)
+scale = Vector2(0.796009, 0.82)
+shape = SubResource("RectangleShape2D_o7l5d")

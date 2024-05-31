@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqubwtld6vr1j"]
+
+[ext_resource type="Texture2D" uid="uid://bk5wmd8ravjih" path="res://assets/liquidificador.png" id="1_ujwbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k17h6"]
+size = Vector2(73, 51)
+
+[node name="liquidificador" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, 6)
+scale = Vector2(0.814607, 0.830508)
+texture = ExtResource("1_ujwbi")
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -12.5)
+shape = SubResource("RectangleShape2D_k17h6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+
+[node name="PlayerDetector" type="RayCast2D" parent="CharacterBody2D"]
+target_position = Vector2(0, 60)

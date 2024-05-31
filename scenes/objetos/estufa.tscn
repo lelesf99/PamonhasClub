@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://djtahmdtbi3oo"]
+
+[ext_resource type="Texture2D" uid="uid://bi4fli23af3d8" path="res://assets/estufa.png" id="1_kq58c"]
+
+[node name="estufa" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+target_position = Vector2(0, -62)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(4, -1.25)
+scale = Vector2(1.05063, 1.05556)
+texture = ExtResource("1_kq58c")
+vframes = 13
+frame = 12
