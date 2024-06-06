@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnqxftneb6byu"]
+
+[ext_resource type="Script" path="res://scripts/Bau de milho.gd" id="1_bmxoa"]
+[ext_resource type="Texture2D" uid="uid://ogwvod36vdq1" path="res://assets/16_Grocery_Store_Singles_Shadowless_32x32/Grocery_Store_Singles_Shadowless_32x32_415.png" id="2_1xk85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7uen"]
+size = Vector2(52, 27)
+
+[node name="Bau de milho" type="Node2D" groups=["interaction_obj"]]
+script = ExtResource("1_bmxoa")
+total_milhos = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1xk85")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_b7uen")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

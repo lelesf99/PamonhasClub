@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b262gli5jbn3q"]
+
+[ext_resource type="Texture2D" uid="uid://eehis8cjrweh" path="res://assets/milho.png" id="1_y33rj"]
+
+[node name="Milho" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y33rj")

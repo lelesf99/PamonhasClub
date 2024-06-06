@@ -387,8 +387,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpkqs"]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_squ1l"]
+radius = 13.0
 height = 48.0
 
 [sub_resource type="Animation" id="Animation_x85g0"]
@@ -724,7 +724,11 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_281mo")
 states/walk/position = Vector2(676, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ukd28"), "walk", "End", SubResource("AnimationNodeStateMachineTransition_on8ua"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_oq3g3"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_4l5gr")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln8ru"]
+
 [node name="Player" type="CharacterBody2D"]
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_ptr8q")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -734,7 +738,7 @@ animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_lpkqs")
+shape = SubResource("CapsuleShape2D_squ1l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -746,3 +750,15 @@ tree_root = SubResource("AnimationNodeStateMachine_rnfam")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0.1232, 0.427313)
 parameters/walk/blend_position = Vector2(-0.208, 0.876652)
+
+[node name="Interaction" type="CharacterBody2D" parent="." groups=["player_interaction"]]
+position = Vector2(0, 8)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+position = Vector2(0, 34)
+shape = SubResource("CircleShape2D_ln8ru")
+
+[node name="Mao1" type="Node2D" parent="."]
+position = Vector2(-12, 20)
