@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://3i5hacr4eisd"]
+[gd_scene load_steps=80 format=3 uid="uid://3i5hacr4eisd"]
 
 [ext_resource type="Texture2D" uid="uid://dmmmtie7pydkj" path="res://assets/Premade_Character_32x32_12.png" id="1_e1pqk"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ptr8q"]
@@ -531,6 +531,9 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_qeuuw"]
+resource_name = "walk_Milho"
+
 [sub_resource type="Animation" id="Animation_6c2pe"]
 length = 1.2
 loop_mode = 1
@@ -642,9 +645,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
-
-[sub_resource type="Animation" id="Animation_qeuuw"]
-resource_name = "walk_Milho"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ogc0u"]
 _data = {

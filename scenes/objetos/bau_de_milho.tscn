@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnqxftneb6byu"]
+[gd_scene load_steps=4 format=3 uid="uid://dpou64j8n3m4v"]
 
 [ext_resource type="Script" path="res://scripts/Bau de milho.gd" id="1_bmxoa"]
 [ext_resource type="Texture2D" uid="uid://dyk5awdoij74j" path="res://assets/16_Grocery_Store_Singles_Shadowless_32x32/Grocery_Store_Singles_Shadowless_32x32_391.png" id="2_i0wwk"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ciw4y8pns16yt" path="res://assets/fogao.png" id="1_y36la"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_042ir"]
-size = Vector2(56, 58)
+size = Vector2(46, 53)
 
 [sub_resource type="Animation" id="Animation_i7qsn"]
 resource_name = "NovaPanela"
@@ -137,12 +137,13 @@ _data = {
 script = ExtResource("1_nkf5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(1, 0)
+position = Vector2(-1.75, 2.625)
+scale = Vector2(0.780303, 0.690367)
 texture = ExtResource("1_y36la")
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1, -10)
+position = Vector2(-1, -12.5)
 shape = SubResource("RectangleShape2D_042ir")
 
 [node name="PlayerDetector" type="RayCast2D" parent="CharacterBody2D"]

@@ -1,7 +1,7 @@
 extends Node2D
 @export var total_milhos = 10; 
 var highlighted = false;
-@onready var milho_com_palha_res = preload("res://scenes/milho_com_palha.tscn");
+@onready var milho_com_palha_res = preload("res://scenes/objetos/milho_com_palha.tscn");
 
 
 # Called when the node enters the scene tree for the first time.

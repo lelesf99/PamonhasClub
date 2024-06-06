@@ -140,8 +140,8 @@ safe_margin = 82.828
 script = ExtResource("1_k81a7")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(3.75, -17.5)
-scale = Vector2(1.12338, 1.20139)
+position = Vector2(-3.37503, -6.25002)
+scale = Vector2(0.84091, 0.822917)
 texture = ExtResource("1_tub8o")
 vframes = 4
 

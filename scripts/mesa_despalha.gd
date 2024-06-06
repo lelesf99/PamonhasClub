@@ -1,7 +1,7 @@
 extends Node2D
 var highlighted = false;
-const MILHO = preload("res://scenes/milho.tscn")
-const PALHA = preload("res://scenes/palha.tscn")
+const MILHO = preload("res://scenes/objetos/milho.tscn")
+const PALHA = preload("res://scenes/objetos/palha.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

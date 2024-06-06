@@ -220,8 +220,8 @@ _data = {
 script = ExtResource("1_i6cr2")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(1, 1)
-scale = Vector2(0.823684, 0.913793)
+position = Vector2(-8.56249, -11.875)
+scale = Vector2(0.622368, 0.617816)
 texture = ExtResource("1_01auu")
 vframes = 4
 
