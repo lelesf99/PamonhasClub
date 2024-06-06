@@ -1,7 +1,7 @@
 extends Node2D
 @export var total_milhos = 10; 
 var highlighted = false;
-@onready var milho_com_palha_res = preload("res://scenes/objetos/milho_com_palha.tscn");
+@onready var milho_com_palha_res = preload("res://scenes/ingredientes/milho_com_palha.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,5 +30,4 @@ func _on_area_2d_body_exited(body):
 		Global.set_highlight(null)
 
 func get_milho():
-	print($Milhos.get_child_count())
 	return $Milhos.get_child($Milhos.get_child_count() - 1)

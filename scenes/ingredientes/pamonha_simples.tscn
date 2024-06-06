@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://cukyrg5aiervg"]
+
+[ext_resource type="Texture2D" uid="uid://cqhh81jhphat3" path="res://assets/pamonha_simples.png" id="1_yk35a"]
+
+[sub_resource type="GDScript" id="GDScript_lnaa6"]
+script/source = "extends Node2D
+const ID = 503
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2hc1"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adk33"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64bqk"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b4f2"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbnbe"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iosr5"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc3wn"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7r4k"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcxjw"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sacy"]
+atlas = ExtResource("1_yk35a")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvyus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2hc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adk33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64bqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b4f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbnbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iosr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc3wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7r4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcxjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sacy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="PamonhaSimples" type="Node2D"]
+script = SubResource("GDScript_lnaa6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qvyus")
+autoplay = "default"
+frame_progress = 0.669547

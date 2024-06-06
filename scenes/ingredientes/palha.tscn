@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn1nppwvtbyf5"]
+
+[ext_resource type="Texture2D" uid="uid://dvyv2b2y1xhei" path="res://assets/palha.png" id="1_2rw8s"]
+
+[sub_resource type="GDScript" id="GDScript_oqjal"]
+script/source = "extends Node2D
+const ID = 3
+"
+
+[node name="Palha" type="Node2D"]
+script = SubResource("GDScript_oqjal")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2rw8s")

@@ -725,6 +725,7 @@ states/walk/position = Vector2(676, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ukd28"), "walk", "End", SubResource("AnimationNodeStateMachineTransition_on8ua"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_oq3g3"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_4l5gr")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln8ru"]
+radius = 3.0
 
 [node name="Player" type="CharacterBody2D"]
 floor_stop_on_slope = false
@@ -746,6 +747,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ogc0u")
+}
 tree_root = SubResource("AnimationNodeStateMachine_rnfam")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0.1232, 0.427313)

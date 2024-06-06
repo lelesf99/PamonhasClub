@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dplpah41g4xel"]
+
+[ext_resource type="Texture2D" uid="uid://g8ifiiufnmh0" path="res://assets/milho_com_palha.png" id="2_sgp30"]
+
+[sub_resource type="GDScript" id="GDScript_ia4t2"]
+script/source = "extends Node2D
+const ID = 2
+"
+
+[node name="MilhoComPalha" type="Node2D" groups=["milho_com_palha"]]
+script = SubResource("GDScript_ia4t2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sgp30")

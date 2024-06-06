@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvci2bms3yh2t"]
+
+[ext_resource type="Texture2D" uid="uid://b88v0urjr6qxn" path="res://assets/pamonha_simples_crua.png" id="1_8vnt7"]
+
+[sub_resource type="GDScript" id="GDScript_ri4po"]
+script/source = "extends Node2D
+const ID = 15
+@export var tempo_pra_cozir = 10;
+@export var tempo_pra_queimar = 5;
+const cozido = preload(\"res://scenes/ingredientes/pamonha_simples.tscn\");
+"
+
+[node name="PamonhaSimplesCrua" type="Node2D"]
+script = SubResource("GDScript_ri4po")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8vnt7")

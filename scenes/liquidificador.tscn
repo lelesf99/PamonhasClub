@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://scripts/liquidificador.gd" id="1_hqm0x"]
 [ext_resource type="Texture2D" uid="uid://bwmpu03fo78xy" path="res://assets/12_Kitchen_Singles_Shadowless_32x32/Kitchen_Singles_Shadowless_32x32_184.png" id="2_d51ea"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owgl4"]
-radius = 12.0
-height = 38.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg0w"]
+size = Vector2(32, 32)
 
 [node name="liquidificador" type="Node2D" groups=["liquidificador"]]
 script = ExtResource("1_hqm0x")
@@ -18,7 +17,7 @@ collision_layer = 32768
 collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_owgl4")
+shape = SubResource("RectangleShape2D_tdg0w")
 
 [node name="Ingredientes" type="Node" parent="."]
 
