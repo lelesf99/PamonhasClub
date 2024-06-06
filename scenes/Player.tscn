@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://3i5hacr4eisd"]
+[gd_scene load_steps=79 format=3 uid="uid://3i5hacr4eisd"]
 
 [ext_resource type="Texture2D" uid="uid://dmmmtie7pydkj" path="res://assets/Premade_Character_32x32_12.png" id="1_e1pqk"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ptr8q"]
@@ -287,6 +287,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -638,6 +643,9 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_qeuuw"]
+resource_name = "walk_Milho"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ogc0u"]
 _data = {
 "RESET": SubResource("Animation_x85g0"),
@@ -645,6 +653,7 @@ _data = {
 "idle_left": SubResource("Animation_xhqi7"),
 "idle_right": SubResource("Animation_rwtul"),
 "idle_up": SubResource("Animation_ce3xs"),
+"walk_Milho": SubResource("Animation_qeuuw"),
 "walk_down": SubResource("Animation_6c2pe"),
 "walk_left": SubResource("Animation_in6uu"),
 "walk_right": SubResource("Animation_fec0m"),
@@ -733,9 +742,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ogc0u")
-}
 tree_root = SubResource("AnimationNodeStateMachine_rnfam")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0.1232, 0.427313)
