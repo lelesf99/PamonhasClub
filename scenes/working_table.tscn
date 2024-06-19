@@ -1,21 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dookhhfosbgdc"]
+[gd_scene load_steps=4 format=3 uid="uid://dookhhfosbgdc"]
 
 [ext_resource type="Script" path="res://scripts/working_table.gd" id="1_25mvw"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="2_tpl7m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovi7v"]
-size = Vector2(30, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok8t2"]
 
 [node name="WorkingTable" type="Node2D" groups=["working_table"]]
 script = ExtResource("1_25mvw")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 32768
-collision_mask = 32768
+[node name="Content" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_ovi7v")
+[node name="Interativo" parent="." instance=ExtResource("2_tpl7m")]
 
-[node name="Content" type="Node" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="Interativo"]
+color = Color(1, 1, 1, 0.392157)
+polygon = PackedVector2Array(-9, -9, -9, 9, 9, 9, 9, -9)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+shape = SubResource("RectangleShape2D_ok8t2")

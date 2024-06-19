@@ -13,27 +13,31 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("player_interaction"):
-		$Sprite2D.self_modulate = Color.GAINSBORO;
-		Global.set_highlight(self)
+# Colocar milho
+func action1(mao):
+	if mao.get_child_count() == 0:
+		if $MilhoComPalha.get_child_count() != 0:
+			var milho = $MilhoComPalha.get_child(0)
+			milho.reparent(mao, false)
+	else:
+		if $MilhoComPalha.get_child_count() == 0:
+			var milho = mao.get_child(0)
+			if !milho.is_in_group("milho_com_palha"): return
+			milho.reparent($MilhoComPalha, false);
 
-
-func _on_area_2d_body_exited(body):
-	if body.is_in_group("player_interaction"):
-		$Sprite2D.self_modulate = Color.WHITE;
-		Global.set_highlight(null)
-
-func put_milho(milho):
-	if milho:
-		if milho.is_in_group("milho_com_palha"):
-			milho.global_position = global_position + Vector2(-10, -10);
-			milho.reparent($MilhoComPalha);
-
-func despalhar_milho():
+# se tiver milho na mesa, despalha ele, se não tiver e tiver passado um, já coloca na mesa e despalha
+func action2(mao):
 	if $MilhoComPalha.get_child_count() != 0:
-		var milho = $MilhoComPalha.get_child(0);
-		milho.queue_free();
-		$BauMilho.add_obj(MILHO.instantiate());
-		$BauPalha.add_obj(PALHA.instantiate());
-		
+		$TaskTimer.start(3)
+	else:
+		if mao.get_child_count() < 1: return
+		var milho = mao.get_child(0)
+		if !milho.is_in_group("milho_com_palha"): return
+		action1(mao)
+		$TaskTimer.start(3)
+
+func _on_task_timer_task_ended(result):
+	var milho = $MilhoComPalha.get_child(0);
+	milho.queue_free();
+	$BauMilho.add_child(MILHO.instantiate());
+	$BauPalha.add_child(PALHA.instantiate());

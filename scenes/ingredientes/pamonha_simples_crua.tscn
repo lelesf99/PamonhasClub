@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvci2bms3yh2t"]
+[gd_scene load_steps=5 format=3 uid="uid://dvci2bms3yh2t"]
 
 [ext_resource type="Texture2D" uid="uid://b88v0urjr6qxn" path="res://assets/pamonha_simples_crua.png" id="1_8vnt7"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_atp8a"]
 
 [sub_resource type="GDScript" id="GDScript_ri4po"]
 script/source = "extends Node2D
@@ -8,10 +9,35 @@ const ID = 15
 @export var tempo_pra_cozir = 10;
 @export var tempo_pra_queimar = 5;
 const cozido = preload(\"res://scenes/ingredientes/pamonha_simples.tscn\");
+
+
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Area2D.disabled = value
 "
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blhw1"]
 
 [node name="PamonhaSimplesCrua" type="Node2D"]
 script = SubResource("GDScript_ri4po")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Interativo" parent="." instance=ExtResource("1_atp8a")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_blhw1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
 texture = ExtResource("1_8vnt7")

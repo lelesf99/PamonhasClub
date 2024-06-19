@@ -8,34 +8,24 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("player_interaction"):
-		$Vazio.self_modulate = Color.GAINSBORO;
-		$Cozindo.self_modulate = Color.GAINSBORO;
-		Global.set_highlight(self)
-
-func _on_area_2d_body_exited(body):
-	if body.is_in_group("player_interaction"):
-		$Vazio.self_modulate = Color.WHITE;
-		$Cozindo.self_modulate = Color.WHITE;
-		Global.set_highlight(null)
-
-func put_obj(obj):
-	if is_instance_valid(obj) && obj.tempo_pra_cozir && obj.tempo_pra_queimar:
-		if $Panela.get_child_count() == 0:
-			obj.reparent($Panela);
-			obj.global_position = $Panela.global_position;
-			$Vazio.visible = false;
-			$Cozindo.visible = true;
-			$TaskTimer.start(obj.tempo_pra_cozir, true, obj.tempo_pra_queimar);
-
-func get_obj():
-	if $Panela.get_child_count() != 0:
-		$Vazio.visible = true;
-		$Cozindo.visible = false;
+func action1(mao):
+	if $Panela.get_child_count() != 0 && mao.get_child_count() == 0:
+		$Area2D/Vazio.visible = true;
+		$Area2D/Cozindo.visible = false;
 		$TaskTimer.conclude_task();
-		return $Panela.get_child(0);
+		$Panela.get_child(0).reparent(mao, false);
+		return
+	if $Panela.get_child_count() == 0 && mao.get_child_count() != 0:
+		var comida = mao.get_child(0)
+		if is_instance_valid(comida) && comida.tempo_pra_cozir && comida.tempo_pra_queimar:
+			if $Panela.get_child_count() == 0:
+				comida.reparent($Panela, false);
+				$Area2D/Vazio.visible = false;
+				$Area2D/Cozindo.visible = true;
+				$TaskTimer.start(comida.tempo_pra_cozir, true, comida.tempo_pra_queimar);
 
+func action2(mao):
+	pass
 
 func _on_task_timer_task_ended(result):
 	if result == "task_finished":

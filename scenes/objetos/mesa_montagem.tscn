@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu36eh5corx"]
-
-[ext_resource type="Texture2D" uid="uid://ccv0d5hoeta2h" path="res://assets/mesaPamonha.png" id="1_3mtud"]
-
-[node name="mesaMontagem" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.25, 1.14151)
-texture = ExtResource("1_3mtud")

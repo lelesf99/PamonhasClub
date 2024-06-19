@@ -1,14 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://b262gli5jbn3q"]
+[gd_scene load_steps=5 format=3 uid="uid://b262gli5jbn3q"]
 
 [ext_resource type="Texture2D" uid="uid://eehis8cjrweh" path="res://assets/milho.png" id="1_8qxgn"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_xaqlo"]
 
 [sub_resource type="GDScript" id="GDScript_vceeb"]
 script/source = "extends Node2D
 const ID = 5
+
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Area2D.disabled = value
 "
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ko0p2"]
+radius = 8.0
 
 [node name="Milho" type="Node2D" groups=["milho"]]
 script = SubResource("GDScript_vceeb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Interativo" parent="." instance=ExtResource("1_xaqlo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+position = Vector2(6, 6)
+rotation = -0.785398
+shape = SubResource("CapsuleShape2D_ko0p2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
 texture = ExtResource("1_8qxgn")

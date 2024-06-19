@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=37 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
 [ext_resource type="PackedScene" uid="uid://3i5hacr4eisd" path="res://scenes/Player.tscn" id="2_on077"]
 [ext_resource type="Texture2D" uid="uid://c6hb8wxbm6pjn" path="res://assets/Room_Builder_3d_walls_32x32.png" id="2_v0fxu"]
 [ext_resource type="Texture2D" uid="uid://curwy3qwar48t" path="res://assets/$Sink.png" id="3_1md66"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_6g0tu"]
 [ext_resource type="Texture2D" uid="uid://cex4yfip6vuik" path="res://assets/5_Classroom_and_library_32x32.png" id="3_maiar"]
 [ext_resource type="Texture2D" uid="uid://bd1j78j4y7o2x" path="res://assets/12_Kitchen.png" id="4_8a4bt"]
 [ext_resource type="Texture2D" uid="uid://cw63or0h2js4d" path="res://assets/10_Birthday_party_32x32.png" id="4_8ywoi"]
@@ -14,12 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://yqs6nsv5jqhl" path="res://assets/16_Grocery_store.png" id="8_vpvxg"]
 [ext_resource type="Texture2D" uid="uid://bbyjygai8td1b" path="res://assets/16_Grocery_store_32x32.png" id="10_da38k"]
 [ext_resource type="PackedScene" uid="uid://4lod2j423xb1" path="res://scenes/fogao.tscn" id="10_o56xx"]
-[ext_resource type="PackedScene" uid="uid://dpou64j8n3m4v" path="res://scenes/bau_de_milho.tscn" id="12_5p16a"]
-[ext_resource type="PackedScene" uid="uid://cglfkq1133j8f" path="res://scenes/mesa_despalha.tscn" id="13_g0tgc"]
+[ext_resource type="PackedScene" uid="uid://dpou64j8n3m4v" path="res://scenes/objetos/bau_de_milho.tscn" id="12_5p16a"]
+[ext_resource type="PackedScene" uid="uid://cglfkq1133j8f" path="res://scenes/objetos/mesa_despalha.tscn" id="13_g0tgc"]
 [ext_resource type="PackedScene" uid="uid://bp1xve316bmnx" path="res://scenes/objetos/geladeira.tscn" id="13_wqb43"]
 [ext_resource type="PackedScene" uid="uid://c1n2dj27pvidn" path="res://scenes/ingredientes/leite.tscn" id="18_qp1y8"]
-[ext_resource type="PackedScene" uid="uid://cu36eh5corx" path="res://scenes/mesa_montagem.tscn" id="21_h6s61"]
+[ext_resource type="PackedScene" uid="uid://cu36eh5corx" path="res://scenes/objetos/mesa_montagem.tscn" id="21_h6s61"]
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="21_llh6d"]
+[ext_resource type="Texture2D" uid="uid://cx1lbtq80ormy" path="res://assets/maquina.png" id="23_jc5g3"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
@@ -9684,20 +9686,6 @@ sources/1 = SubResource("TileSetAtlasSource_h5jaa")
 sources/0 = SubResource("TileSetAtlasSource_5yxyl")
 sources/13 = SubResource("TileSetAtlasSource_27lw5")
 
-[sub_resource type="GDScript" id="GDScript_b3prl"]
-script/source = "extends Camera2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -9772,4 +9760,9 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
-script = SubResource("GDScript_b3prl")
+script = ExtResource("3_6g0tu")
+
+[node name="Maquina" type="Sprite2D" parent="."]
+position = Vector2(-82, 66)
+scale = Vector2(1.04839, 1.10656)
+texture = ExtResource("23_jc5g3")

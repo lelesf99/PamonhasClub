@@ -7,6 +7,8 @@ var recipe_map = {
 	3: preload("res://scenes/ingredientes/palha.tscn"),
 	5: preload("res://scenes/ingredientes/milho.tscn"),
 	7: preload("res://scenes/ingredientes/milho_ralado.tscn"),
+	11: "queijo",
+	13: "linguica",
 # primos a partir de 500 pratos prontos
 	503: preload("res://scenes/ingredientes/pamonha_simples.tscn"),
 	509: "pamonha_queijo",
@@ -14,17 +16,21 @@ var recipe_map = {
 # ------------------------------------
 # combinações são produtos
 	21: preload("res://scenes/ingredientes/pamonha_simples_crua.tscn"),
-	165: "pamonha_queijo_crua",
+	33: "palha_com_queijo",
+	77: "milho_ralado_com_queijo",
+	231: "pamonha_queijo_crua",
+	39: "palha_com_linguica",
+	91: "milho_ralado_com_linguica",
 	273: "pamonha_moda_crua"
 }
 
-func get_combo(radArray: PackedInt64Array):
-	var mult = 1;
-	for i in radArray:
-		mult = mult * i;
-	return recipe_map.get(mult);
-func set_highlight(node):
-	highlighted = node
+func combine(ingrediente1, ingrediente2):
+	if !is_instance_valid(ingrediente1): return
+	if !is_instance_valid(ingrediente2): return
+	return recipe_map.get(ingrediente1.ID * ingrediente2.ID)
+	
+func set_highlight(nodes):
+	highlighted = nodes
 
 func get_highlight():
 	return highlighted

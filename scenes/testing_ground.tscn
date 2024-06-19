@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwl2sdj0aaas0"]
+
+[ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="1_8ko3c"]
+[ext_resource type="PackedScene" uid="uid://ddo1fx8vxgaxh" path="res://scenes/interaction.tscn" id="2_f0cjo"]
+[ext_resource type="PackedScene" uid="uid://b262gli5jbn3q" path="res://scenes/ingredientes/milho.tscn" id="2_mtaj0"]
+
+[sub_resource type="GDScript" id="GDScript_nd4mb"]
+script/source = "extends Node2D
+@onready var interaction = $Interaction
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed(\"item_1\"):
+		interaction.get_first_interativo().action1_just_pressed.emit($Milho)
+	if Input.is_action_just_pressed(\"item_2\"):
+		interaction.get_first_interativo().action1_just_pressed.emit(\"teste\")
+"
+
+[node name="TestingGround" type="Node2D"]
+
+[node name="Ralador" parent="." instance=ExtResource("1_8ko3c")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = SubResource("GDScript_nd4mb")
+
+[node name="Milho" parent="Node2D" instance=ExtResource("2_mtaj0")]
+visible = false
+
+[node name="Interaction" parent="Node2D" instance=ExtResource("2_f0cjo")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

@@ -1,14 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvli1jbu4w334"]
+[gd_scene load_steps=5 format=3 uid="uid://dvli1jbu4w334"]
 
 [ext_resource type="Texture2D" uid="uid://uklur85fhde" path="res://assets/milho_ralado.png" id="1_spqqk"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_ts8hb"]
 
 [sub_resource type="GDScript" id="GDScript_mj8j6"]
 script/source = "extends Node2D
 const ID = 7
+
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Area2D.disabled = value
 "
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wt1q"]
+radius = 12.0
 
 [node name="MilhoRalado" type="Node2D"]
 script = SubResource("GDScript_mj8j6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Interativo" parent="." instance=ExtResource("1_ts8hb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+shape = SubResource("CircleShape2D_4wt1q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
 texture = ExtResource("1_spqqk")

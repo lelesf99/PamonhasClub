@@ -10,28 +10,20 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("player_interaction"):
-		$Sprite2D.self_modulate = Color.GAINSBORO;		
-		Global.set_highlight(self)
+func action1(mao):
+	if mao.get_child_count() > 0: return
+	if $Area2D/Prato/Milho.get_child_count() == 0: return
+	$Area2D/Prato/Milho.get_child($Area2D/Prato/Milho.get_child_count() - 1).position = Vector2.ZERO
+	$Area2D/Prato/Milho.get_child($Area2D/Prato/Milho.get_child_count() - 1).reparent(mao, false)
 
-
-func _on_area_2d_body_exited(body):
-	if body.is_in_group("player_interaction"):
-		$Sprite2D.self_modulate = Color.WHITE;
-		Global.set_highlight(null)
-
-func ralar_milho(milho: Node):
-	if is_instance_valid(milho) && milho.is_in_group("milho"):
-		$TaskTimer.start(3);
-		milho.queue_free();
-
-func get_milho():
-	return $Prato/Milho.get_child($Prato/Milho.get_child_count() - 1)
-
+func action2(mao):
+	if mao.get_child_count() < 1: return
+	var milho = mao.get_child(0)
+	if !milho.is_in_group("milho"): return
+	$TaskTimer.start(3);
+	milho.queue_free();
 
 func _on_task_timer_task_ended(result):
-	print(result)
 	var milho_ralado = MILHO_RALADO.instantiate();
-	$Prato/Milho.add_child(milho_ralado);
+	$Area2D/Prato/Milho.add_child(milho_ralado);
 	milho_ralado.global_position = Vector2(20, 0) + global_position;

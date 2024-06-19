@@ -1,11 +1,30 @@
-[gd_scene load_steps=14 format=3 uid="uid://cukyrg5aiervg"]
+[gd_scene load_steps=16 format=3 uid="uid://cukyrg5aiervg"]
 
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_n00e0"]
 [ext_resource type="Texture2D" uid="uid://cqhh81jhphat3" path="res://assets/pamonha_simples.png" id="1_yk35a"]
 
 [sub_resource type="GDScript" id="GDScript_lnaa6"]
 script/source = "extends Node2D
 const ID = 503
+
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Area2D.disabled = value
 "
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ofo0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2hc1"]
 atlas = ExtResource("1_yk35a")
@@ -88,7 +107,13 @@ animations = [{
 [node name="PamonhaSimples" type="Node2D"]
 script = SubResource("GDScript_lnaa6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Interativo" parent="." instance=ExtResource("1_n00e0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ofo0p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interativo"]
 sprite_frames = SubResource("SpriteFrames_qvyus")
 autoplay = "default"
 frame_progress = 0.669547

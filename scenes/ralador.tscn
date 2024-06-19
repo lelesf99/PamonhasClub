@@ -1,42 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvpbh7miktkp"]
+[gd_scene load_steps=7 format=3 uid="uid://bvpbh7miktkp"]
 
 [ext_resource type="Script" path="res://scripts/ralador.gd" id="1_i6dti"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="2_4uifs"]
 [ext_resource type="Texture2D" uid="uid://boq33qrlsc3my" path="res://assets/12_Kitchen_Singles_Shadowless_32x32/Kitchen_Singles_Shadowless_32x32_209.png" id="2_jelhy"]
 [ext_resource type="Texture2D" uid="uid://24fbnr2ur61b" path="res://assets/12_Kitchen_Singles_Shadowless_32x32/Kitchen_Singles_Shadowless_32x32_381.png" id="3_xc4rf"]
 [ext_resource type="PackedScene" uid="uid://d8x4i3rb07lu" path="res://scenes/task_timer.tscn" id="4_4j0mv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vepp3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wb4d"]
 size = Vector2(64, 32)
 
 [node name="Ralador" type="Node2D" groups=["ralador"]]
 z_index = 1
 script = ExtResource("1_i6dti")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, 2)
-texture = ExtResource("2_jelhy")
+[node name="Interativo" parent="." instance=ExtResource("2_4uifs")]
 
-[node name="Prato" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+position = Vector2(9, 1)
+shape = SubResource("RectangleShape2D_6wb4d")
+
+[node name="Prato" type="Node2D" parent="Interativo"]
 position = Vector2(4, -2)
 
-[node name="Milho" type="Node2D" parent="Prato"]
+[node name="Milho" type="Node2D" parent="Interativo/Prato"]
 z_index = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Prato"]
+[node name="Sprite2D" type="Sprite2D" parent="Interativo/Prato"]
 position = Vector2(22, 4)
 texture = ExtResource("3_xc4rf")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(10, 2)
-shape = SubResource("RectangleShape2D_vepp3")
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
+position = Vector2(-6, 3)
+texture = ExtResource("2_jelhy")
 
 [node name="TaskTimer" parent="." instance=ExtResource("4_4j0mv")]
 position = Vector2(9, -36)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="task_ended" from="TaskTimer" to="." method="_on_task_timer_task_ended"]
