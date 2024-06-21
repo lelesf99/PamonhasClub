@@ -9735,7 +9735,7 @@ position = Vector2(-260, -259)
 position = Vector2(157, -300)
 
 [node name="fogao" parent="." instance=ExtResource("10_o56xx")]
-position = Vector2(93, -300)
+position = Vector2(94, -289)
 
 [node name="leite" parent="." instance=ExtResource("18_qp1y8")]
 position = Vector2(-38, -311)
