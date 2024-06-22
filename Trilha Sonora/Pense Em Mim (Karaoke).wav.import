@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxyikfql51wly"
+path="res://.godot/imported/Pense Em Mim (Karaoke).wav-ac6231cf03e518e3add3d335edbda5cd.sample"
+
+[deps]
+
+source_file="res://Trilha Sonora/Pense Em Mim (Karaoke).wav"
+dest_files=["res://.godot/imported/Pense Em Mim (Karaoke).wav-ac6231cf03e518e3add3d335edbda5cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

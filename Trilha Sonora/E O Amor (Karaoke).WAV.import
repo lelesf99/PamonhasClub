@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvkij42ibdeco"
+path="res://.godot/imported/E O Amor (Karaoke).WAV-807f91f162dd554cc0b6267a6d0468eb.sample"
+
+[deps]
+
+source_file="res://Trilha Sonora/E O Amor (Karaoke).WAV"
+dest_files=["res://.godot/imported/E O Amor (Karaoke).WAV-807f91f162dd554cc0b6267a6d0468eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

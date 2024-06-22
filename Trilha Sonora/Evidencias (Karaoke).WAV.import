@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://de1swyfcgc3ro"
+path="res://.godot/imported/Evidencias (Karaoke).WAV-d789f27e05fd8e83c2cab285647e8060.sample"
+
+[deps]
+
+source_file="res://Trilha Sonora/Evidencias (Karaoke).WAV"
+dest_files=["res://.godot/imported/Evidencias (Karaoke).WAV-d789f27e05fd8e83c2cab285647e8060.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

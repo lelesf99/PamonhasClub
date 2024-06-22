@@ -1,0 +1,144 @@
+[gd_scene load_steps=18 format=3 uid="uid://c64nq6fp1bomw"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_42yny"]
+[ext_resource type="Texture2D" uid="uid://dbn11fhy1wn7h" path="res://menu.png" id="2_0x887"]
+[ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_ycipg"]
+[ext_resource type="AudioStream" uid="uid://crg2is03cccrt" path="res://fonte/Dormi Na Praca (Karaoke).WAV" id="4_p0h3j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nrhe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps56y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s073p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3jrl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv0eo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxdlv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_od2ox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi4hi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_in5k1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03gir"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yys1k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cu8f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c7v6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_42yny")
+
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(577, 331)
+texture = ExtResource("2_0x887")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 81.0
+offset_right = 1049.0
+offset_bottom = 540.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Jogar" type="Button" parent="VBoxContainer/VBoxContainer" groups=["button"]]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ycipg")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_2nrhe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ps56y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s073p")
+toggle_mode = true
+text = "Jogar"
+
+[node name="Controles" type="Button" parent="VBoxContainer/VBoxContainer" groups=["button"]]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ycipg")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3jrl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cv0eo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lxdlv")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_od2ox")
+text = "Controles
+"
+
+[node name="Créditos" type="Button" parent="VBoxContainer/VBoxContainer" groups=["button"]]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ycipg")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_wi4hi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_in5k1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_03gir")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_od2ox")
+text = "Créditos"
+
+[node name="Sair" type="Button" parent="VBoxContainer/VBoxContainer" groups=["button"]]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.355314, 0.355314, 0.355314, 1)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ycipg")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_yys1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6cu8f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c7v6")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_od2ox")
+text = "Sair"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.612346, 0, 0.152893, 1)
+layout_mode = 0
+offset_left = 165.0
+offset_top = 45.0
+offset_right = 574.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("3_ycipg")
+theme_override_font_sizes/font_size = 150
+text = "Pamonha's Club"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_p0h3j")
