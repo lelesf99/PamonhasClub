@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c64nq6fp1bomw"]
+[gd_scene load_steps=17 format=3 uid="uid://c64nq6fp1bomw"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_42yny"]
 [ext_resource type="Texture2D" uid="uid://dbn11fhy1wn7h" path="res://menu.png" id="2_0x887"]
 [ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_ycipg"]
-[ext_resource type="AudioStream" uid="uid://cxyikfql51wly" path="res://Trilha Sonora/Pense Em Mim (Karaoke).wav" id="4_xxbmy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nrhe"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -139,6 +138,3 @@ offset_bottom = 131.0
 theme_override_fonts/font = ExtResource("3_ycipg")
 theme_override_font_sizes/font_size = 150
 text = "Pamonha's Club"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_xxbmy")
