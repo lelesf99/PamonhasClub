@@ -16,9 +16,9 @@ func on_button_pressed(button: Button) -> void:
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
 			$AudioStreamPlayer2D.stop()
 		"Controles":
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
+			get_tree().change_scene_to_file("res://scenes/controles.tscn")
 		"Créditos":
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
+			get_tree().change_scene_to_file("res://scenes/creditos.tscn")
 		"Sair":
 			get_tree().quit()
 			$AudioStreamPlayer2D.stop()

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://3deah2c0r453"]
+
+[ext_resource type="Texture2D" uid="uid://burykj3uo3fr3" path="res://assets/tela adicional.png" id="1_5l7xj"]
+[ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="2_qp8tx"]
+[ext_resource type="PackedScene" uid="uid://dtvm15wuesnnq" path="res://scenes/objetos/botao_voltar.tscn" id="3_xsde0"]
+
+[node name="creditos" type="Node2D"]
+
+[node name="TelaAdicional" type="Sprite2D" parent="."]
+position = Vector2(575, 323)
+texture = ExtResource("1_5l7xj")
+
+[node name="Titulo" type="Label" parent="."]
+offset_left = 440.0
+offset_top = 8.0
+offset_right = 670.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qp8tx")
+theme_override_font_sizes/font_size = 150
+text = "Créditos"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 279.0
+offset_top = 137.0
+offset_right = 855.0
+offset_bottom = 604.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_qp8tx")
+theme_override_fonts/bold_font = ExtResource("2_qp8tx")
+theme_override_font_sizes/normal_font_size = 70
+text = "Desenvolvedores:
+Abrao Rodrigues
+Guilherme Tavares
+Natália Souza
+Vinícius Leles
+
+Músicas:
+Pense em mim - Leandro & Leonardo
+
+Assets:"
+
+[node name="botaoVoltar" parent="." instance=ExtResource("3_xsde0")]
+position = Vector2(963, 8)

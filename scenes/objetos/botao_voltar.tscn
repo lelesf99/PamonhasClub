@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtvm15wuesnnq"]
+
+[ext_resource type="Script" path="res://botaoVoltar.gd" id="1_4oonq"]
+[ext_resource type="Texture2D" uid="uid://dd1ttcwqle4md" path="res://assets/btn_voltar.png" id="2_v3sc5"]
+[ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_gyala"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cklb7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmi5i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mp3u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="botaoVoltar" type="Node2D"]
+
+[node name="BtnVoltar" type="Sprite2D" parent="."]
+position = Vector2(89, 31)
+scale = Vector2(0.7, 0.703883)
+texture = ExtResource("2_v3sc5")
+
+[node name="btnVoltar" type="Button" parent="BtnVoltar"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -107.143
+offset_top = -36.938
+offset_right = 101.857
+offset_bottom = 26.062
+theme_override_fonts/font = ExtResource("3_gyala")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_cklb7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmi5i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1mp3u")
+text = "Voltar"
+script = ExtResource("1_4oonq")
+scene_path = "res://scenes/menu.tscn"
+
+[connection signal="mouse_entered" from="BtnVoltar/btnVoltar" to="BtnVoltar/btnVoltar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BtnVoltar/btnVoltar" to="BtnVoltar/btnVoltar" method="_on_mouse_exited"]
+[connection signal="pressed" from="BtnVoltar/btnVoltar" to="BtnVoltar/btnVoltar" method="_on_botao_voltar_pressed"]
