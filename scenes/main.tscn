@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c1n2dj27pvidn" path="res://scenes/ingredientes/leite.tscn" id="18_qp1y8"]
 [ext_resource type="PackedScene" uid="uid://cu36eh5corx" path="res://scenes/mesa_montagem.tscn" id="21_h6s61"]
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="21_llh6d"]
-[ext_resource type="PackedScene" uid="uid://bp8uc720f152l" path="res://scenes/Ui.tscn" id="22_tx5gr"]
+[ext_resource type="PackedScene" uid="uid://cwy8jejjh7ke2" path="res://scenes/pause_menu.tscn" id="22_igw3f"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
@@ -9700,6 +9700,10 @@ func _process(delta):
 "
 
 [node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("22_igw3f")]
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
