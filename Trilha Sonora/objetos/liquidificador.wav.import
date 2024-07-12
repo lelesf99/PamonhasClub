@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfydvr7yr83me"
+path="res://.godot/imported/liquidificador.wav-5a5f71cbeb6a78283aa66c6adf23b87b.sample"
+
+[deps]
+
+source_file="res://Trilha Sonora/objetos/liquidificador.wav"
+dest_files=["res://.godot/imported/liquidificador.wav-5a5f71cbeb6a78283aa66c6adf23b87b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
