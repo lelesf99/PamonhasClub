@@ -21,7 +21,7 @@ func action2(mao):
 	return self
 
 func set_disabled(value: bool):
-	$Area2D.disabled = value
+	$Interativo.disabled = value
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wt1q"]

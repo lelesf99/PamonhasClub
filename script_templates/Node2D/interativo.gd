@@ -16,4 +16,4 @@ func action2(mao: Node2D):
 	pass # Replace witha ation2 code
 
 func set_disabled(value: bool):
-	$Area2D.disabled = value
+	$Interativo.disabled = value

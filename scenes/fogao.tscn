@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d8x4i3rb07lu" path="res://scenes/task_timer.tscn" id="4_xk1h0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5w3f"]
-size = Vector2(46, 36.5)
+size = Vector2(32, 30)
 
 [node name="fogao" type="Node2D" groups=["fogao"]]
 script = ExtResource("1_6nion")
@@ -15,8 +15,6 @@ script = ExtResource("1_6nion")
 [node name="Interativo" parent="." instance=ExtResource("2_u5rmi")]
 
 [node name="Vazio" type="Sprite2D" parent="Interativo"]
-position = Vector2(0, 1.125)
-scale = Vector2(1.42188, 1.24609)
 texture = ExtResource("2_lcgp3")
 
 [node name="Cozindo" type="Sprite2D" parent="Interativo"]
@@ -25,7 +23,7 @@ position = Vector2(1, 0)
 texture = ExtResource("3_kppnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
-position = Vector2(0, -15.25)
+position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_y5w3f")
 
 [node name="Panela" type="Node2D" parent="."]

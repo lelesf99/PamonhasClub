@@ -21,7 +21,7 @@ func action2(mao):
 	return self
 
 func set_disabled(value: bool):
-	$Area2D.disabled = value
+	$Interativo.disabled = value
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ko0p2"]
@@ -31,6 +31,7 @@ radius = 8.0
 script = SubResource("GDScript_vceeb")
 
 [node name="Interativo" parent="." instance=ExtResource("1_xaqlo")]
+position = Vector2(-7, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
 position = Vector2(6, 6)
