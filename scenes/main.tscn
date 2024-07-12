@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="21_llh6d"]
 [ext_resource type="PackedScene" uid="uid://cwy8jejjh7ke2" path="res://scenes/pause_menu.tscn" id="22_igw3f"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
+[ext_resource type="PackedScene" uid="uid://bp8uc720f152l" path="res://scenes/Ui.tscn" id="22_tx5gr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
 
