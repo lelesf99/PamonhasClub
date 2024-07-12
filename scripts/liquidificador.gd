@@ -8,7 +8,11 @@ func _ready():
 	add_child(soundEffect)
 	soundEffect.stream = load("res://Trilha Sonora/objetos/liquidificador.wav")
 
+func action2(mao):
+	_play_sound_effect()
 
+func action1(mao):
+	_play_sound_effect()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

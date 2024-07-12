@@ -30,14 +30,15 @@ func action1(mao):
 
 # se tiver milho na mesa, despalha ele, se não tiver e tiver passado um, já coloca na mesa e despalha
 func action2(mao):
-	_play_sound_effect()
 	if $MilhoComPalha.get_child_count() != 0:
+		_play_sound_effect()
 		$TaskTimer.start(3)
 	else:
 		if mao.get_child_count() < 1: return
 		var milho = mao.get_child(0)
 		if !milho.is_in_group("milho_com_palha"): return
 		action1(mao)
+		_play_sound_effect()
 		$TaskTimer.start(3)
 
 func _on_task_timer_task_ended(result):

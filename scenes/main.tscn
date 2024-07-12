@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=38 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_yvapt"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c1n2dj27pvidn" path="res://scenes/ingredientes/leite.tscn" id="18_qp1y8"]
 [ext_resource type="PackedScene" uid="uid://cu36eh5corx" path="res://scenes/mesa_montagem.tscn" id="21_h6s61"]
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="21_llh6d"]
+[ext_resource type="PackedScene" path="res://scenes/Ui.tscn" id="22_tx5gr"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]

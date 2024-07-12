@@ -18,3 +18,6 @@ func _play_sound_effect():
 func _input(event):
 	if event.is_action_pressed("action") and player and player.position.distance_to(position) < 100.0:
 		_play_sound_effect()
+
+func action2(mao):
+	_play_sound_effect()
