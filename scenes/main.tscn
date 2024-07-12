@@ -9778,3 +9778,5 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = SubResource("GDScript_b3prl")
+
+[node name="Ui" parent="." instance=ExtResource("22_tx5gr")]
