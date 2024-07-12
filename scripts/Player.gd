@@ -7,11 +7,19 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	if Global.player_stopped: return;
 	if velocity != Vector2.ZERO:
-		$AnimationTree.get("parameters/playback").travel("walk");
-		$AnimationTree.set("parameters/idle/blend_position", velocity.normalized());
-		$AnimationTree.set("parameters/walk/blend_position", velocity.normalized());
+		if $Mao1.get_child_count() == 0:
+			$AnimationTree.get("parameters/playback").travel("walk");
+			$AnimationTree.set("parameters/idle/blend_position", velocity.normalized());
+			$AnimationTree.set("parameters/walk/blend_position", velocity.normalized());
+		else:
+			$AnimationTree.get("parameters/playback").travel("walk_holding");
+			$AnimationTree.set("parameters/idle_holding/blend_position", velocity.normalized());
+			$AnimationTree.set("parameters/walk_holding/blend_position", velocity.normalized());
 	else:
-		$AnimationTree.get("parameters/playback").travel("idle");
+		if $Mao1.get_child_count() == 0:		
+			$AnimationTree.get("parameters/playback").travel("idle");
+		else:
+			$AnimationTree.get("parameters/playback").travel("idle_holding");
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

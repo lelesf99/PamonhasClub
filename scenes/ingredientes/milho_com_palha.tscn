@@ -6,17 +6,9 @@
 [sub_resource type="GDScript" id="GDScript_ia4t2"]
 script/source = "extends Node2D
 const ID = 2
-var desired_position = Vector2.ZERO
-
-func _ready():
-	desired_position = global_position
-	print(desired_position)
-
-func _process(delta):
-	global_position = lerp(global_position, desired_position, delta);
 
 func action1(mao):
-	desired_position = mao.global_position
+	global_position = mao.global_position
 	rotation = 0
 	if mao.get_child_count() == 0:
 		set_disabled(true)
