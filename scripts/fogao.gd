@@ -10,8 +10,8 @@ func _process(delta):
 
 func action1(mao):
 	if $Panela.get_child_count() != 0 && mao.get_child_count() == 0:
-		$Area2D/Vazio.visible = true;
-		$Area2D/Cozindo.visible = false;
+		$Interativo/Vazio.visible = true;
+		$Interativo/Cozindo.visible = false;
 		$TaskTimer.conclude_task();
 		$Panela.get_child(0).reparent(mao, false);
 		return
@@ -20,8 +20,8 @@ func action1(mao):
 		if is_instance_valid(comida) && comida.tempo_pra_cozir && comida.tempo_pra_queimar:
 			if $Panela.get_child_count() == 0:
 				comida.reparent($Panela, false);
-				$Area2D/Vazio.visible = false;
-				$Area2D/Cozindo.visible = true;
+				$Interativo/Vazio.visible = false;
+				$Interativo/Cozindo.visible = true;
 				$TaskTimer.start(comida.tempo_pra_cozir, true, comida.tempo_pra_queimar);
 
 func action2(mao):

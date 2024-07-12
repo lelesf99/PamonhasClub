@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cwy8jejjh7ke2"]
 
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_67bsj"]
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_ecd75"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ecd75"]
 [ext_resource type="Texture2D" uid="uid://burykj3uo3fr3" path="res://assets/tela adicional.png" id="2_5rqvg"]
 [ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_cydse"]
 [ext_resource type="Texture2D" uid="uid://dd1ttcwqle4md" path="res://assets/btn_voltar.png" id="3_h0y4f"]
