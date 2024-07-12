@@ -1,12 +1,15 @@
 extends Node2D
 var highlighted = false;
+var soundEffect: AudioStreamPlayer2D
 const MILHO = preload("res://scenes/ingredientes/milho.tscn")
 const PALHA = preload("res://scenes/ingredientes/palha.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	soundEffect = AudioStreamPlayer2D.new()
+	add_child(soundEffect)
+	soundEffect.stream = load("res://Trilha Sonora/objetos/corte-faca.wav")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +30,7 @@ func action1(mao):
 
 # se tiver milho na mesa, despalha ele, se não tiver e tiver passado um, já coloca na mesa e despalha
 func action2(mao):
+	_play_sound_effect()
 	if $MilhoComPalha.get_child_count() != 0:
 		$TaskTimer.start(3)
 	else:
@@ -41,3 +45,7 @@ func _on_task_timer_task_ended(result):
 	milho.queue_free();
 	$BauMilho.add_child(MILHO.instantiate());
 	$BauPalha.add_child(PALHA.instantiate());
+	
+func _play_sound_effect():
+	soundEffect.play() 
+		

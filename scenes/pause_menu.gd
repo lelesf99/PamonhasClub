@@ -1,7 +1,8 @@
 extends Control
 @onready var optionsMenu = preload("res://scenes/pause_menu.tscn")
 func _ready():
-	$AnimationPlayer.play("RESET")
+	#$AnimationPlayer.play("RESET")
+	pass
 
 func resume():
 	get_tree().paused = false

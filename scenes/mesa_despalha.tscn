@@ -31,4 +31,6 @@ position = Vector2(45, 1)
 [node name="TaskTimer" parent="." instance=ExtResource("4_iir5s")]
 position = Vector2(0, -32)
 
+[node name="soundEffect" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="task_ended" from="TaskTimer" to="." method="_on_task_timer_task_ended"]
