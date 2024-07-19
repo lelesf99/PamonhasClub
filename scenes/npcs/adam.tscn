@@ -1,8 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://8ssyort7peob"]
+[gd_scene load_steps=56 format=3 uid="uid://8ssyort7peob"]
 
 [ext_resource type="Texture2D" uid="uid://0wqp504xq200" path="res://assets/Characters_free/Adam_idle_anim_16x16.png" id="1_gn32f"]
+[ext_resource type="Script" path="res://scenes/npcs/npcs.gd" id="1_mytx5"]
 [ext_resource type="Texture2D" uid="uid://csil42d1da0t7" path="res://assets/Characters_free/Adam_run_16x16.png" id="2_gh3wv"]
 [ext_resource type="Texture2D" uid="uid://ckvgbe7fv3p63" path="res://assets/Characters_free/Adam_sit3_16x16.png" id="3_ybbui"]
+[ext_resource type="PackedScene" uid="uid://cy2xr4v740oxn" path="res://scenes/pedido_bubble.tscn" id="5_l2pmv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yavbc"]
 atlas = ExtResource("1_gn32f")
@@ -387,13 +389,24 @@ animations = [{
 size = Vector2(20, 35)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_mytx5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qpwt7")
-animation = &"sit_right"
+animation = &"idle_up"
 autoplay = "idle_down"
-frame_progress = 0.324663
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ckie3")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Dialogo" parent="." instance=ExtResource("5_l2pmv")]
+visible = false
+z_index = 100
+position = Vector2(-10, -39)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=39 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_yvapt"]
@@ -21,7 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://c1n2dj27pvidn" path="res://scenes/ingredientes/leite.tscn" id="18_qp1y8"]
 [ext_resource type="PackedScene" uid="uid://cu36eh5corx" path="res://scenes/mesa_montagem.tscn" id="21_h6s61"]
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="21_llh6d"]
-[ext_resource type="PackedScene" path="res://scenes/Ui.tscn" id="22_tx5gr"]
+[ext_resource type="PackedScene" uid="uid://bp8uc720f152l" path="res://scenes/Ui.tscn" id="22_tx5gr"]
+[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/adam.tscn" id="24_v1lhh"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
@@ -9710,8 +9711,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_right = -1.0
+offset_left = 4.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yvapt")
@@ -9791,3 +9794,6 @@ drag_bottom_margin = 0.1
 script = SubResource("GDScript_b3prl")
 
 [node name="Ui" parent="." instance=ExtResource("22_tx5gr")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("24_v1lhh")]
+position = Vector2(-62, 53)
