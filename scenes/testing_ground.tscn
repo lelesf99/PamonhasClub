@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwl2sdj0aaas0"]
 
-[ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/ralador.tscn" id="1_8ko3c"]
+[ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/objetos/ralador.tscn" id="1_8ko3c"]
 [ext_resource type="PackedScene" uid="uid://ddo1fx8vxgaxh" path="res://scenes/interaction.tscn" id="2_f0cjo"]
 [ext_resource type="PackedScene" uid="uid://b262gli5jbn3q" path="res://scenes/ingredientes/milho.tscn" id="2_mtaj0"]
 

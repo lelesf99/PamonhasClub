@@ -6,6 +6,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	if Global.player_stopped: return;
+	
+	if $Mao1.get_child_count() != 0:
+		var coisa = $Mao1.get_child(0);
+		coisa.global_position = lerp(coisa.global_position, $Mao1.global_position, 0.5);
+		
+	
 	if velocity != Vector2.ZERO:
 		if $Mao1.get_child_count() == 0:
 			$AnimationTree.get("parameters/playback").travel("walk");
@@ -28,6 +34,10 @@ func _physics_process(delta):
 	if directionX || directionY:
 		velocity = Vector2(directionX, directionY).normalized() * SPEED;
 		$Interaction.position = Vector2(directionX, directionY) * 32 + Vector2(0.0, 8.0);
+		if $Mao1.position.y >= 1:
+			$Mao1.show_behind_parent = false;
+		else:
+			$Mao1.show_behind_parent = true;
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)

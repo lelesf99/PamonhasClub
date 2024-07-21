@@ -16,7 +16,7 @@ func action1(mao):
 	if mao.get_child_count() > 0: return
 	if $Interativo/Prato/Milho.get_child_count() == 0: return
 	$Interativo/Prato/Milho.get_child($Interativo/Prato/Milho.get_child_count() - 1).position = Vector2.ZERO
-	$Interativo/Prato/Milho.get_child($Interativo/Prato/Milho.get_child_count() - 1).reparent(mao, false)
+	$Interativo/Prato/Milho.get_child($Interativo/Prato/Milho.get_child_count() - 1).reparent(mao)
 
 func _play_sound_effect():
 	soundEffect.play() 

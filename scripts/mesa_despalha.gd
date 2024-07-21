@@ -14,19 +14,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if $MilhoComPalha.get_child_count() > 0:
+		for child in $MilhoComPalha.get_children():
+			child.global_position = lerp(child.global_position, global_position, 10 * delta);
 
 # Colocar milho
 func action1(mao):
 	if mao.get_child_count() == 0:
 		if $MilhoComPalha.get_child_count() != 0:
 			var milho = $MilhoComPalha.get_child(0)
-			milho.reparent(mao, false)
+			milho.reparent(mao)
 	else:
 		if $MilhoComPalha.get_child_count() == 0:
 			var milho = mao.get_child(0)
 			if !milho.is_in_group("milho_com_palha"): return
-			milho.reparent($MilhoComPalha, false);
+			milho.reparent($MilhoComPalha);
 
 # se tiver milho na mesa, despalha ele, se não tiver e tiver passado um, já coloca na mesa e despalha
 func action2(mao):

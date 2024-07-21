@@ -8,7 +8,6 @@ script/source = "extends Node2D
 const ID = 2
 
 func action1(mao):
-	global_position = mao.global_position
 	rotation = 0
 	if mao.get_child_count() == 0:
 		set_disabled(true)
