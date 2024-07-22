@@ -40,4 +40,3 @@ func stop_player():
 
 func play_player():
 	player_stopped = false;
-	

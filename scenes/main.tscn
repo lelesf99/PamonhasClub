@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=38 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
+[ext_resource type="PackedScene" uid="uid://cwfvvgvdxrqou" path="res://scenes/pause_menu.tscn" id="1_81ps5"]
 [ext_resource type="PackedScene" uid="uid://3i5hacr4eisd" path="res://scenes/Player.tscn" id="2_on077"]
 [ext_resource type="Texture2D" uid="uid://c6hb8wxbm6pjn" path="res://assets/Room_Builder_3d_walls_32x32.png" id="2_v0fxu"]
 [ext_resource type="Texture2D" uid="uid://curwy3qwar48t" path="res://assets/$Sink.png" id="3_1md66"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c1n2dj27pvidn" path="res://scenes/ingredientes/leite.tscn" id="18_qp1y8"]
 [ext_resource type="PackedScene" uid="uid://cu36eh5corx" path="res://scenes/objetos/mesa_montagem.tscn" id="21_h6s61"]
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/objetos/ralador.tscn" id="21_llh6d"]
+[ext_resource type="PackedScene" uid="uid://d0aox3iqr6tse" path="res://scenes/objetos/Lixeira.tscn" id="22_uus75"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
@@ -9700,6 +9702,12 @@ func _process(delta):
 
 [node name="Main" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_81ps5")]
+visible = false
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(1, -1)
@@ -9741,7 +9749,7 @@ position = Vector2(94, -289)
 position = Vector2(-38, -311)
 
 [node name="mesaMontagem" parent="." instance=ExtResource("21_h6s61")]
-position = Vector2(-145, -288)
+position = Vector2(-160, -288)
 
 [node name="Ralador" parent="." instance=ExtResource("21_llh6d")]
 position = Vector2(-43, -178)
@@ -9762,6 +9770,9 @@ position = Vector2(78, -176)
 
 [node name="WorkingTable5" parent="Mesa" instance=ExtResource("25_lfq1g")]
 position = Vector2(100, -176)
+
+[node name="Lixeira" parent="." instance=ExtResource("22_uus75")]
+position = Vector2(-111, -289)
 
 [node name="Player" parent="." instance=ExtResource("2_on077")]
 position = Vector2(101, -20)

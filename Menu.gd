@@ -1,5 +1,4 @@
 extends Control
-@export var new_music: AudioStream
 	
 func _ready():
 	for button in get_tree().get_nodes_in_group("button"):

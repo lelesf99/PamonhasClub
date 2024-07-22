@@ -11,10 +11,8 @@ func _process(delta):
 	if $Content.get_child_count() > 0:
 		for child in $Content.get_children():
 			child.global_position = lerp(child.global_position, global_position, 10 * delta);
-	pass
 
 func action1(mao):
-	print(mao.get_child_count() != 0, $Content.get_child_count() == 0)
 	if mao.get_child_count() != 0:
 		var coisa = mao.get_child(0)
 		if $Content.get_child_count() == 0:
@@ -36,3 +34,6 @@ func action1(mao):
 			coisa.set_disabled(true)
 			coisa.reparent(mao)
 			return
+
+func action2():
+	pass;
