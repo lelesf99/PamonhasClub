@@ -1,7 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://dktcc5rju4qii"]
+[gd_scene load_steps=10 format=3 uid="uid://c84fgeoaelopg"]
 
 [ext_resource type="Texture2D" uid="uid://b62am7renl8qp" path="res://assets/milhos.png" id="1_01auu"]
-[ext_resource type="Script" path="res://scenes/objetos/bancadaMilhos.gd" id="1_i6cr2"]
+
+[sub_resource type="GDScript" id="GDScript_5c8dn"]
+script/source = "extends CharacterBody2D
+
+var jogador_proximo = false
+var contarMilhos = 0
+@onready var PlayerDetector := $PlayerDetector as RayCast2D
+
+
+func _physics_process(delta):
+	if PlayerDetector.is_colliding():
+		jogador_proximo = true
+	else:
+		jogador_proximo = false
+		
+	if Input.is_action_just_pressed(\"action\") and jogador_proximo:
+			contarMilhos = contarMilhos + 1
+			if contarMilhos == 2:
+				$AnimationPlayer.play(\"metadeMilhos\")
+			if contarMilhos == 6:
+				$AnimationPlayer.play(\"ultimosMilhos\")
+			if contarMilhos == 10:
+				$AnimationPlayer.play(\"acabouMilhos\")
+			if contarMilhos > 10:
+				$AnimationPlayer.play(\"recarregarMilhos\")
+				contarMilhos = 0
+
+
+func _ready():
+	connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+	connect(\"body_exited\", Callable(self, \"_on_body_exited\"))
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o3xsp"]
 size = Vector2(72, 33)
@@ -217,7 +248,7 @@ _data = {
 [node name="bancadaMilhos" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_i6cr2")
+script = SubResource("GDScript_5c8dn")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(-8.56249, -11.875)

@@ -24,6 +24,11 @@ var recipe_map = {
 	273: "pamonha_moda_crua"
 }
 
+var hints = [];
+
+func update_hints(new_hints):
+	hints = new_hints;
+
 func combine(ingrediente1, ingrediente2):
 	if !is_instance_valid(ingrediente1): return
 	if !is_instance_valid(ingrediente2): return
@@ -40,4 +45,3 @@ func stop_player():
 
 func play_player():
 	player_stopped = false;
-	

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqubwtld6vr1j"]
+
+[ext_resource type="Script" path="res://scripts/liquidificador.gd" id="1_hqm0x"]
+[ext_resource type="Texture2D" uid="uid://bwmpu03fo78xy" path="res://assets/12_Kitchen_Singles_Shadowless_32x32/Kitchen_Singles_Shadowless_32x32_184.png" id="2_d51ea"]
+[ext_resource type="AudioStream" uid="uid://dfydvr7yr83me" path="res://Trilha Sonora/objetos/liquidificador.wav" id="3_vjn1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg0w"]
+size = Vector2(32, 32)
+
+[node name="liquidificador" type="Node2D" groups=["liquidificador"]]
+script = ExtResource("1_hqm0x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d51ea")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tdg0w")
+
+[node name="Ingredientes" type="Node" parent="."]
+
+[node name="soundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vjn1d")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,162 @@
+[gd_scene load_steps=7 format=3 uid="uid://ljsasqrsw5li"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_220ex"]
+[ext_resource type="Texture2D" uid="uid://cc4ch7i2hm72a" path="res://assets/menuPause.png" id="3_1i7bs"]
+[ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_wxvaq"]
+[ext_resource type="Texture2D" uid="uid://dd1ttcwqle4md" path="res://assets/btn_voltar.png" id="4_kxbyx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3kag"]
+font = ExtResource("3_wxvaq")
+font_size = 120
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8o3oq"]
+font = ExtResource("3_wxvaq")
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_220ex")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_1i7bs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -228.0
+offset_top = -315.0
+offset_right = 188.0
+offset_bottom = -201.0
+text = "Menu de Pausa"
+label_settings = SubResource("LabelSettings_e3kag")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Retomar" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -168.0
+offset_right = 141.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Retomar"]
+texture = ExtResource("4_kxbyx")
+centered = false
+
+[node name="Label" type="Label" parent="Control/Retomar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -48.5
+offset_right = 123.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retomar"
+label_settings = SubResource("LabelSettings_8o3oq")
+horizontal_alignment = 1
+
+[node name="Controles" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -28.0
+offset_right = 141.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Controles"]
+texture = ExtResource("4_kxbyx")
+centered = false
+
+[node name="Label" type="Label" parent="Control/Controles"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -48.5
+offset_right = 123.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Controles"
+label_settings = SubResource("LabelSettings_8o3oq")
+horizontal_alignment = 1
+
+[node name="Menu" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 111.0
+offset_right = 141.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Menu"]
+texture = ExtResource("4_kxbyx")
+centered = false
+
+[node name="Label" type="Label" parent="Control/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -48.5
+offset_right = 123.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_8o3oq")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/Retomar" to="." method="_on_retomar_pressed"]
+[connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]

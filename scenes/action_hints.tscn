@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca154rk704fw3"]
+
+[ext_resource type="Script" path="res://scripts/action_hints.gd" id="1_7ceoy"]
+
+[node name="ActionHints" type="CanvasLayer"]
+script = ExtResource("1_7ceoy")
+
+[node name="Hints" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 256.0
+grow_vertical = 0
