@@ -1,5 +1,7 @@
 extends Node2D
-
+var hints = [
+	{"label": "Cozinhar", "type": "key", "key_label": "1"}
+]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -13,6 +15,10 @@ func _process(delta):
 
 func action1(mao):
 	if $Panela.get_child_count() != 0 && mao.get_child_count() == 0:
+		hints = [
+			{"label": "Cozinhar", "type": "key", "key_label": "1"}
+		]
+		Global.update_hints(hints);
 		$Interativo/Vazio.visible = true;
 		$Interativo/Cozindo.visible = false;
 		$TaskTimer.conclude_task();
@@ -23,6 +29,10 @@ func action1(mao):
 		if is_instance_valid(comida) && comida.tempo_pra_cozir && comida.tempo_pra_queimar:
 			if $Panela.get_child_count() == 0:
 				comida.reparent($Panela);
+				hints = [
+					{"label": "Pegar", "type": "key", "key_label": "1"}
+				]
+				Global.update_hints(hints);
 				$Interativo/Vazio.visible = false;
 				$Interativo/Cozindo.visible = true;
 				$TaskTimer.start(comida.tempo_pra_cozir, true, comida.tempo_pra_queimar);

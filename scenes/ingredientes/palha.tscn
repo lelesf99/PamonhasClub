@@ -6,7 +6,9 @@
 [sub_resource type="GDScript" id="GDScript_oqjal"]
 script/source = "extends Node2D
 const ID = 3
-
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
 func action1(mao):
 	global_position = mao.global_position
 	rotation = 0
@@ -27,7 +29,7 @@ func set_disabled(value: bool):
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w1hcp"]
 radius = 8.0
 
-[node name="Palha" type="Node2D"]
+[node name="Palha" type="Node2D" groups=["ingrediente"]]
 script = SubResource("GDScript_oqjal")
 
 [node name="Interativo" parent="." instance=ExtResource("1_5bu2x")]

@@ -1,5 +1,5 @@
 extends Control
-@onready var optionsMenu = preload("res://scenes/pause_menu.tscn")
+
 func _ready():
 	pass
 

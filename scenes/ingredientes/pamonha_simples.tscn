@@ -6,7 +6,9 @@
 [sub_resource type="GDScript" id="GDScript_lnaa6"]
 script/source = "extends Node2D
 const ID = 503
-
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
 func action1(mao):
 	global_position = mao.global_position
 	rotation = 0
@@ -104,7 +106,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="PamonhaSimples" type="Node2D"]
+[node name="PamonhaSimples" type="Node2D" groups=["ingrediente"]]
 script = SubResource("GDScript_lnaa6")
 
 [node name="Interativo" parent="." instance=ExtResource("1_n00e0")]

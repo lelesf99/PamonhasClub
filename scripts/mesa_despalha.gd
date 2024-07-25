@@ -3,7 +3,10 @@ var highlighted = false;
 var soundEffect: AudioStreamPlayer2D
 const MILHO = preload("res://scenes/ingredientes/milho.tscn")
 const PALHA = preload("res://scenes/ingredientes/palha.tscn")
-
+const hints = [
+	{"label": "Colocar", "type": "key", "key_label": "1"},
+	{"label": "Despalhar", "type": "key", "key_label": "2"},	
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
