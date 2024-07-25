@@ -1,5 +1,6 @@
-[gd_scene load_steps=54 format=3 uid="uid://c21xwg3j7f24a"]
+[gd_scene load_steps=55 format=3 uid="uid://c21xwg3j7f24a"]
 
+[ext_resource type="Script" path="res://scripts/MovimentoCliente.gd" id="1_5sdhf"]
 [ext_resource type="Texture2D" uid="uid://cchy7civmrteb" path="res://assets/Characters_free/Amelia_idle_anim_16x16.png" id="1_nfywk"]
 [ext_resource type="Texture2D" uid="uid://b0jd7cp8tvp0o" path="res://assets/Characters_free/Amelia_run_16x16.png" id="2_drt2o"]
 [ext_resource type="Texture2D" uid="uid://b8lt40vv5nd6a" path="res://assets/Characters_free/Amelia_sit3_16x16.png" id="3_frxvt"]
@@ -384,16 +385,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckie3"]
-size = Vector2(20, 35)
+size = Vector2(50, 35)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["clientes"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.68434e-14, 0)
+scale = Vector2(2.3125, 2.1875)
 sprite_frames = SubResource("SpriteFrames_qpwt7")
-animation = &"sit_right"
-autoplay = "idle_down"
-frame_progress = 0.0971394
+animation = &"idle_up"
+autoplay = "idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_ckie3")
+
+[node name="MovimentoCliente" type="Node2D" parent="."]
+script = ExtResource("1_5sdhf")

@@ -1,15 +1,20 @@
-[gd_scene load_steps=38 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=43 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_hpm2y"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_yvapt"]
+[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/adam.tscn" id="2_gccq8"]
 [ext_resource type="PackedScene" uid="uid://3i5hacr4eisd" path="res://scenes/Player.tscn" id="2_on077"]
 [ext_resource type="Texture2D" uid="uid://c6hb8wxbm6pjn" path="res://assets/Room_Builder_3d_walls_32x32.png" id="2_v0fxu"]
 [ext_resource type="Texture2D" uid="uid://curwy3qwar48t" path="res://assets/$Sink.png" id="3_1md66"]
+[ext_resource type="PackedScene" uid="uid://b2od3cfndconf" path="res://scenes/npcs/alex.tscn" id="3_2ywoj"]
 [ext_resource type="Texture2D" uid="uid://cex4yfip6vuik" path="res://assets/5_Classroom_and_library_32x32.png" id="3_maiar"]
+[ext_resource type="PackedScene" uid="uid://c21xwg3j7f24a" path="res://scenes/npcs/amelia.tscn" id="4_0es6e"]
 [ext_resource type="Texture2D" uid="uid://bd1j78j4y7o2x" path="res://assets/12_Kitchen.png" id="4_8a4bt"]
 [ext_resource type="Texture2D" uid="uid://cw63or0h2js4d" path="res://assets/10_Birthday_party_32x32.png" id="4_8ywoi"]
 [ext_resource type="Texture2D" uid="uid://b1hl2defbb2df" path="res://assets/16_Grocery_store_Shadowless_32x32.png" id="4_dgfn2"]
 [ext_resource type="Texture2D" uid="uid://bemdetk2k2qdq" path="res://assets/B-C-D-E_Kitchen_01.png" id="5_1k71f"]
+[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/bob.tscn" id="5_g7xjj"]
 [ext_resource type="PackedScene" uid="uid://bqubwtld6vr1j" path="res://scenes/liquidificador.tscn" id="6_8ijc4"]
 [ext_resource type="Texture2D" uid="uid://dhnatt1dxexji" path="res://assets/Grocery_Store_02.png" id="7_6ha84"]
 [ext_resource type="Texture2D" uid="uid://yqs6nsv5jqhl" path="res://assets/16_Grocery_store.png" id="8_vpvxg"]
@@ -9701,6 +9706,11 @@ func _process(delta):
 "
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_hpm2y")
+AdamScene = ExtResource("2_gccq8")
+AlexScene = ExtResource("3_2ywoj")
+AmeliaScene = ExtResource("4_0es6e")
+BobScene = ExtResource("5_g7xjj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -9711,7 +9721,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
+offset_top = -1.0
 offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yvapt")
@@ -9774,7 +9786,7 @@ position = Vector2(48, -176)
 position = Vector2(80, -176)
 
 [node name="Player" parent="." instance=ExtResource("2_on077")]
-position = Vector2(101, -20)
+position = Vector2(117, -11)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 rotation = 0.915316
@@ -9791,3 +9803,14 @@ drag_bottom_margin = 0.1
 script = SubResource("GDScript_b3prl")
 
 [node name="Ui" parent="." instance=ExtResource("22_tx5gr")]
+
+[node name="FilaBalcao" type="Node2D" parent="."]
+position = Vector2(121, 60)
+
+[node name="Clientes" type="Node2D" parent="."]
+position = Vector2(89, 45)
+
+[node name="timer_cliente" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="timer_cliente" to="." method="_on_timer_cliente_timeout"]

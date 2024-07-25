@@ -1,6 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://8ssyort7peob"]
+[gd_scene load_steps=55 format=3 uid="uid://8ssyort7peob"]
 
 [ext_resource type="Texture2D" uid="uid://bs2eywoct8tfs" path="res://assets/Characters_free/Bob_idle_anim_16x16.png" id="1_0yhj1"]
+[ext_resource type="Script" path="res://scripts/MovimentoCliente.gd" id="1_5q16h"]
 [ext_resource type="Texture2D" uid="uid://s1trgvd1gfw6" path="res://assets/Characters_free/Bob_run_16x16.png" id="2_07iew"]
 [ext_resource type="Texture2D" uid="uid://ssp7ywrrm8u6" path="res://assets/Characters_free/Bob_sit3_16x16.png" id="3_lpcg5"]
 
@@ -384,16 +385,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckie3"]
-size = Vector2(20, 35)
+size = Vector2(35, 35)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["clientes"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 1)
+scale = Vector2(1.875, 1.90625)
 sprite_frames = SubResource("SpriteFrames_qpwt7")
-animation = &"idle_down"
-autoplay = "idle_down"
-frame_progress = 0.0465636
+animation = &"idle_up"
+autoplay = "idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(1.5, 0.5)
 shape = SubResource("RectangleShape2D_ckie3")
+
+[node name="MovimentoCliente" type="Node2D" parent="."]
+script = ExtResource("1_5q16h")

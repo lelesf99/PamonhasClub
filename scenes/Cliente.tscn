@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://do8fktfpf72t5"]
+
+[ext_resource type="Script" path="res://scenes/Cliente.gd" id="1_qjcj2"]
+
+[node name="Cliente" type="Node2D"]
+script = ExtResource("1_qjcj2")
+
+[node name="TimerCliente" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="PosicaoFila" type="Node2D" parent="."]
+
+[connection signal="ready" from="." to="." method="_ready"]
+[connection signal="timeout" from="TimerCliente" to="." method="_on_timer_cliente_timeout"]
