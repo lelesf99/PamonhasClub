@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhvdl2hun2hqb"]
+[gd_scene load_steps=7 format=3 uid="uid://bhvdl2hun2hqb"]
 
 [ext_resource type="Script" path="res://BalaoDialogo.gd" id="1_qktk6"]
-[ext_resource type="Texture2D" uid="uid://bjywomqiobwdc" path="res://assets/pamonha_moda_crua.png" id="2_83yjc"]
 [ext_resource type="Texture2D" uid="uid://bh6kiau0p6581" path="res://assets/BalaoDialogo.png" id="2_df7mt"]
-[ext_resource type="Texture2D" uid="uid://ci7vsgrxs84gr" path="res://assets/pamonha_queijo_crua.png" id="3_0ltey"]
+[ext_resource type="Texture2D" uid="uid://16p8yb2lm8b6" path="res://assets/pamonha_moda_pedido.png" id="2_jae0w"]
+[ext_resource type="Texture2D" uid="uid://blfa8q1j78leq" path="res://assets/pamonha_queijo_pedido.png" id="3_hq4t7"]
+[ext_resource type="Texture2D" uid="uid://4dtbkn3iq6xd" path="res://assets/pamonha_simples_pedido.png" id="4_86nap"]
 [ext_resource type="Texture2D" uid="uid://b88v0urjr6qxn" path="res://assets/pamonha_simples_crua.png" id="4_taj0e"]
 
 [node name="BalaoDialogo" type="Node2D"]
+position = Vector2(0, 1)
 script = ExtResource("1_qktk6")
-icones_pamonha = Array[Texture2D]([ExtResource("2_83yjc"), ExtResource("3_0ltey"), ExtResource("4_taj0e")])
+icones_pamonha = Array[Texture2D]([ExtResource("2_jae0w"), ExtResource("3_hq4t7"), ExtResource("4_86nap")])
 
 [node name="Balao" type="Sprite2D" parent="."]
 position = Vector2(2.84217e-14, 5)

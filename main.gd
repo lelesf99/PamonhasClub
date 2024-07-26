@@ -40,7 +40,7 @@ func _on_timer_cliente_timeout():
 	# Cria e configura o balão de diálogo
 	var balao_dialogo = load("res://scenes/balao_dialogo.tscn").instantiate()  # Carregue sua cena do balão
 	new_client.add_child(balao_dialogo)
-	balao_dialogo.position = Vector2(0, -50)  
+	balao_dialogo.position = Vector2(0, -35)  
 	
 	if clientes_na_fila.is_empty():  
 		new_client.position = posicao_balcao  
