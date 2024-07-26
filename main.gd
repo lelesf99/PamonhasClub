@@ -23,6 +23,7 @@ func _ready():
 	cliente_scenes.push_back(BobScene)
 	
 	posicao_balcao = fila_balcao.position
+	_on_timer_cliente_timeout()
 	
 func _process(delta):
 	if Global.hints != $ActionHints.hints:
@@ -35,6 +36,11 @@ func _on_timer_cliente_timeout():
 	var cliente_scene = cliente_scenes[random_index]
 	var new_client = cliente_scene.instantiate()
 	add_child(new_client)
+	
+	# Cria e configura o balão de diálogo
+	var balao_dialogo = load("res://scenes/balao_dialogo.tscn").instantiate()  # Carregue sua cena do balão
+	new_client.add_child(balao_dialogo)
+	balao_dialogo.position = Vector2(0, -50)  
 	
 	if clientes_na_fila.is_empty():  
 		new_client.position = posicao_balcao  
