@@ -18,5 +18,6 @@ func _process(delta):
 func is_hovered():
 	if disabled: return false
 	for area in get_overlapping_areas():
-		if area.is_in_group("interaction"): return true
+		if area.is_in_group("interaction"): 
+			return true
 	return false

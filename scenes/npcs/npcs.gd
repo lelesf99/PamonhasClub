@@ -1,31 +1,25 @@
 extends CharacterBody2D
+var hints = [
+	{"label": "Entregar", "type": "key", "key_label": "1"}
+]
+@onready var score = get_node("/root/Main/UICanva/UI/ScoreLabel")
+@onready var main = get_node("/root/Main")
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
 
-const speed = 200.0
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var direction : Vector2
-var timer_status = 0;
-@onready var dialog = get_node("Dialogo")
-@onready var bg = get_node("Dialogo/Control/ItemList")
-# direction and animation to be updated throughout game state
-var new_direction = Vector2(0,1)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
-func _physics_process(delta):
-	return
+func action1(mao):
+	if mao.get_child_count() != 0:
+		var coisa = mao.get_node_or_null('PamonhaSimples')
+		if coisa != null:
+			score.update_score()
+			coisa.queue_free()
+			main._next_from_queue()
+	pass
 
-func _on_timer_timeout():
-	if(timer_status == 0):
-		timer_status += 1
-		dialog.visible = true
-	if(timer_status == 5):
-		timer_status += 1
-		var theme = bg.get_theme_stylebox("panel")
-		theme.set("bg_color", Color.YELLOW)
-	if(timer_status == 15):
-		timer_status += 1
-		var theme = bg.get_theme_stylebox("panel")
-		theme.set("bg_color", Color.RED)
-	if(timer_status == 20):
-		timer_status += 1
-		dialog.visible = false
-	timer_status += 1
+func action2(mao):
+	pass

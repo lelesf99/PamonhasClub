@@ -71,3 +71,8 @@ func _comparar_clientes_por_distancia(a, b):
 	var distancia_a = a.position.distance_squared_to(posicao_balcao)
 	var distancia_b = b.position.distance_squared_to(posicao_balcao)
 	return distancia_a < distancia_b
+	
+func _next_from_queue():
+	var cliente = clientes_na_fila.pop_front()
+	cliente.queue_free()
+	_atualizar_posicoes_na_fila()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://8ssyort7peob"]
+[gd_scene load_steps=57 format=3 uid="uid://8ssyort7peob"]
 
 [ext_resource type="Texture2D" uid="uid://bs2eywoct8tfs" path="res://assets/Characters_free/Bob_idle_anim_16x16.png" id="1_0yhj1"]
 [ext_resource type="Script" path="res://scripts/MovimentoCliente.gd" id="1_5q16h"]
+[ext_resource type="Script" path="res://scenes/npcs/npcs.gd" id="1_mnx3a"]
 [ext_resource type="Texture2D" uid="uid://s1trgvd1gfw6" path="res://assets/Characters_free/Bob_run_16x16.png" id="2_07iew"]
 [ext_resource type="Texture2D" uid="uid://ssp7ywrrm8u6" path="res://assets/Characters_free/Bob_sit3_16x16.png" id="3_lpcg5"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="6_lqxk8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hb13d"]
 atlas = ExtResource("1_0yhj1")
@@ -385,9 +387,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckie3"]
-size = Vector2(35, 35)
+size = Vector2(35, 68.75)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["clientes"]]
+script = ExtResource("1_mnx3a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, 1)
@@ -402,3 +405,9 @@ shape = SubResource("RectangleShape2D_ckie3")
 
 [node name="MovimentoCliente" type="Node2D" parent="."]
 script = ExtResource("1_5q16h")
+
+[node name="Interativo" parent="." instance=ExtResource("6_lqxk8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+position = Vector2(1, -13)
+shape = SubResource("RectangleShape2D_ckie3")

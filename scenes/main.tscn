@@ -1,10 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://drjkcc31y80y"]
+[gd_scene load_steps=49 format=3 uid="uid://drjkcc31y80y"]
 
 [ext_resource type="PackedScene" uid="uid://ljsasqrsw5li" path="res://scenes/menu_pausa.tscn" id="1_8sbrm"]
 [ext_resource type="Texture2D" uid="uid://co73fwaogitux" path="res://assets/Room_Builder_Floors_32x32.png" id="1_47onw"]
 [ext_resource type="PackedScene" uid="uid://ca154rk704fw3" path="res://scenes/action_hints.tscn" id="1_hgs3d"]
 [ext_resource type="Script" path="res://main.gd" id="1_htx4c"]
-[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/adam.tscn" id="2_6ditg"]
 [ext_resource type="PackedScene" uid="uid://3i5hacr4eisd" path="res://scenes/Player.tscn" id="2_on077"]
 [ext_resource type="Texture2D" uid="uid://c6hb8wxbm6pjn" path="res://assets/Room_Builder_3d_walls_32x32.png" id="2_v0fxu"]
 [ext_resource type="Texture2D" uid="uid://curwy3qwar48t" path="res://assets/$Sink.png" id="3_1md66"]
@@ -15,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cw63or0h2js4d" path="res://assets/10_Birthday_party_32x32.png" id="4_8ywoi"]
 [ext_resource type="Texture2D" uid="uid://b1hl2defbb2df" path="res://assets/16_Grocery_store_Shadowless_32x32.png" id="4_dgfn2"]
 [ext_resource type="Texture2D" uid="uid://bemdetk2k2qdq" path="res://assets/B-C-D-E_Kitchen_01.png" id="5_1k71f"]
-[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/bob.tscn" id="5_g7xjj"]
+[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/adam.tscn" id="5_g7xjj"]
 [ext_resource type="PackedScene" uid="uid://bqubwtld6vr1j" path="res://scenes/objetos/liquidificador.tscn" id="6_8ijc4"]
 [ext_resource type="Texture2D" uid="uid://dhnatt1dxexji" path="res://assets/Grocery_Store_02.png" id="7_6ha84"]
 [ext_resource type="Texture2D" uid="uid://yqs6nsv5jqhl" path="res://assets/16_Grocery_store.png" id="8_vpvxg"]
@@ -29,7 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://bvpbh7miktkp" path="res://scenes/objetos/ralador.tscn" id="21_llh6d"]
 [ext_resource type="PackedScene" uid="uid://d0aox3iqr6tse" path="res://scenes/objetos/Lixeira.tscn" id="22_uus75"]
 [ext_resource type="PackedScene" uid="uid://dookhhfosbgdc" path="res://scenes/working_table.tscn" id="25_lfq1g"]
+[ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="30_0j3pm"]
 [ext_resource type="Texture2D" uid="uid://bs1evvkdbh8vr" path="res://assets/bancada.png" id="30_s7jm5"]
+[ext_resource type="Texture2D" uid="uid://dd1ttcwqle4md" path="res://assets/btn_voltar.png" id="30_u2adv"]
+[ext_resource type="Script" path="res://scripts/score_label.gd" id="31_4lmbc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orgou"]
 
@@ -9710,9 +9712,20 @@ func _process(delta):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koe8f"]
 size = Vector2(449.849, 54.0415)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2u1xy"]
+content_margin_left = 18.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+texture = ExtResource("30_u2adv")
+expand_margin_left = 12.0
+expand_margin_top = 4.0
+expand_margin_right = 48.0
+expand_margin_bottom = 4.0
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_htx4c")
-AdamScene = ExtResource("2_6ditg")
+AdamScene = ExtResource("5_g7xjj")
 AlexScene = ExtResource("3_2ywoj")
 AmeliaScene = ExtResource("4_0es6e")
 BobScene = ExtResource("5_g7xjj")
@@ -9809,12 +9822,14 @@ drag_bottom_margin = 0.1
 script = SubResource("GDScript_b3prl")
 
 [node name="Bancada" type="Sprite2D" parent="."]
-position = Vector2(19, 8)
-scale = Vector2(0.65133, 0.772)
+position = Vector2(19, 11.625)
+scale = Vector2(0.65133, 0.714)
 texture = ExtResource("30_s7jm5")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Bancada"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bancada"]
-position = Vector2(-3.83829, -17.0207)
+position = Vector2(0, -0.875345)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_koe8f")
 
@@ -9825,8 +9840,32 @@ position = Vector2(109, 19)
 position = Vector2(109, 24)
 
 [node name="timer_cliente" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
+wait_time = 15.0
 autostart = true
+
+[node name="UICanva" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UICanva"]
+layout_mode = 3
+anchor_right = 0.0321181
+anchor_bottom = 0.00925926
+offset_right = 76.0
+offset_bottom = 32.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="UICanva/UI"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_0j3pm")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxTexture_2u1xy")
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("31_4lmbc")
 
 [connection signal="timeout" from="timer_cliente" to="." method="_on_timer_cliente_timeout"]
