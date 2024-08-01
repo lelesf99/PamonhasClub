@@ -49,7 +49,7 @@ func _on_timer_cliente_timeout():
 	add_child(new_client)
 	clientes_na_fila.append(new_client)
 	_atualizar_posicoes_na_fila()
-	
+		
 func _atualizar_posicoes_na_fila():
 	clientes_na_fila.sort_custom(Callable(self, "_comparar_clientes_por_distancia"))
 	var direcao_fila = Vector2.ZERO
@@ -75,4 +75,20 @@ func _comparar_clientes_por_distancia(a, b):
 func _next_from_queue():
 	var cliente = clientes_na_fila.pop_front()
 	cliente.queue_free()
-	_atualizar_posicoes_na_fila()
+	_atualizar_fila_apos_entrega()
+
+func _atualizar_fila_apos_entrega():
+	clientes_na_fila.sort_custom(Callable(self, "_comparar_clientes_por_distancia"))
+	var direcao_fila = Vector2.ZERO
+	direcao_fila.y = sign(posicao_balcao.y + posicao_fila.y)
+
+	for i in range(clientes_na_fila.size()):
+		var cliente = clientes_na_fila[i]
+		if i == 0:
+			cliente.position = posicao_balcao # Primeiro cliente vai para o balcão
+		else:
+			cliente.position = clientes_na_fila[i-1].position + direcao_fila * distancia_fila  # Pega a posição do cliente da frente
+
+	if not clientes_na_fila.is_empty():
+		posicao_fila = clientes_na_fila[-1].position + direcao_fila * distancia_fila
+
