@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cw63or0h2js4d" path="res://assets/10_Birthday_party_32x32.png" id="4_8ywoi"]
 [ext_resource type="Texture2D" uid="uid://b1hl2defbb2df" path="res://assets/16_Grocery_store_Shadowless_32x32.png" id="4_dgfn2"]
 [ext_resource type="Texture2D" uid="uid://bemdetk2k2qdq" path="res://assets/B-C-D-E_Kitchen_01.png" id="5_1k71f"]
-[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/adam.tscn" id="5_g7xjj"]
+[ext_resource type="PackedScene" uid="uid://8ssyort7peob" path="res://scenes/npcs/bob.tscn" id="5_g7xjj"]
 [ext_resource type="PackedScene" uid="uid://bqubwtld6vr1j" path="res://scenes/objetos/liquidificador.tscn" id="6_8ijc4"]
 [ext_resource type="Texture2D" uid="uid://dhnatt1dxexji" path="res://assets/Grocery_Store_02.png" id="7_6ha84"]
 [ext_resource type="Texture2D" uid="uid://yqs6nsv5jqhl" path="res://assets/16_Grocery_store.png" id="8_vpvxg"]
@@ -9709,8 +9709,8 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_koe8f"]
-size = Vector2(449.849, 54.0415)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8gol"]
+size = Vector2(292, 34)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2u1xy"]
 content_margin_left = 18.0
@@ -9828,10 +9828,10 @@ texture = ExtResource("30_s7jm5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bancada"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bancada"]
-position = Vector2(0, -0.875345)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_koe8f")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bancada/StaticBody2D"]
+position = Vector2(-1.53532, -6.47759)
+scale = Vector2(1.53532, 1.40056)
+shape = SubResource("RectangleShape2D_b8gol")
 
 [node name="FilaBalcao" type="Node2D" parent="."]
 position = Vector2(109, 19)
