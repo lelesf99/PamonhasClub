@@ -6,7 +6,7 @@
 script = ExtResource("1_qjcj2")
 
 [node name="TimerCliente" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
 
 [node name="PosicaoFila" type="Node2D" parent="."]

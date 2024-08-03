@@ -9840,7 +9840,7 @@ position = Vector2(109, 19)
 position = Vector2(109, 24)
 
 [node name="timer_cliente" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 30.0
 autostart = true
 
 [node name="UICanva" type="CanvasLayer" parent="."]
