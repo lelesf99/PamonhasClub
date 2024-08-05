@@ -15,6 +15,7 @@ var clientes_na_fila = []
 var distancia_fila = 40
 @export var posicao_balcao = Vector2.ZERO
 @onready var fila_balcao = $FilaBalcao
+var primeira_pamonha_entregue = false
 
 func _ready():
 	cliente_scenes.push_back(AdamScene)
@@ -24,6 +25,9 @@ func _ready():
 	
 	posicao_balcao = fila_balcao.position
 	_on_timer_cliente_timeout()
+	if not primeira_pamonha_entregue:
+		_novo_cliente()
+	
 	
 func _process(delta):
 	if Global.hints != $ActionHints.hints:
@@ -32,23 +36,25 @@ func _process(delta):
 		print($ActionHints.hints)
 
 func _on_timer_cliente_timeout():
-	var random_index = randi() % cliente_scenes.size()
-	var cliente_scene = cliente_scenes[random_index]
-	var new_client = cliente_scene.instantiate()
-	add_child(new_client)
+	if primeira_pamonha_entregue:
+		var random_index = randi() % cliente_scenes.size()
+		var cliente_scene = cliente_scenes[random_index]
+		var new_client = cliente_scene.instantiate()
+		add_child(new_client)
 	
-	# Cria e configura o balão de diálogo
-	var balao_dialogo = load("res://scenes/balao_dialogo.tscn").instantiate()  # Carregue sua cena do balão
-	new_client.add_child(balao_dialogo)
-	balao_dialogo.position = Vector2(0, -35)  
+		# Cria e configura o balão de diálogo
+		var balao_dialogo = load("res://scenes/balao_dialogo.tscn").instantiate()  # Carregue sua cena do balão
+		new_client.add_child(balao_dialogo)
+		balao_dialogo.position = Vector2(0, -35)  
 	
-	if clientes_na_fila.is_empty():  
-		new_client.position = posicao_balcao  
-	else:
-		new_client.position = posicao_fila  
-	add_child(new_client)
-	clientes_na_fila.append(new_client)
-	_atualizar_posicoes_na_fila()
+		if clientes_na_fila.is_empty():  
+			new_client.position = posicao_balcao  
+		else:
+			new_client.position = posicao_fila  
+		add_child(new_client)
+		clientes_na_fila.append(new_client)
+		_atualizar_posicoes_na_fila()
+
 		
 func _atualizar_posicoes_na_fila():
 	clientes_na_fila.sort_custom(Callable(self, "_comparar_clientes_por_distancia"))
@@ -73,6 +79,9 @@ func _comparar_clientes_por_distancia(a, b):
 	return distancia_a < distancia_b
 	
 func _next_from_queue():
+	if not primeira_pamonha_entregue:
+		primeira_pamonha_entregue = true
+	
 	var cliente = clientes_na_fila.pop_front()
 	cliente.queue_free()
 	_atualizar_fila_apos_entrega()
@@ -91,4 +100,20 @@ func _atualizar_fila_apos_entrega():
 
 	if not clientes_na_fila.is_empty():
 		posicao_fila = clientes_na_fila[-1].position + direcao_fila * distancia_fila
+		
+func _novo_cliente():
+	var random_index = randi() % cliente_scenes.size()
+	var cliente_scene = cliente_scenes[random_index]
+	var new_client = cliente_scene.instantiate()
+	add_child(new_client)
+	
+	# Cria e configura o balão de diálogo
+	var balao_dialogo = load("res://scenes/balao_dialogo.tscn").instantiate()  # Carregue sua cena do balão
+	new_client.add_child(balao_dialogo)
+	balao_dialogo.position = Vector2(0, -35)  
+	
+	if clientes_na_fila.is_empty():  
+		new_client.position = posicao_balcao  
+	add_child(new_client)
+	clientes_na_fila.append(new_client)
 

@@ -12,4 +12,5 @@ autostart = true
 [node name="PosicaoFila" type="Node2D" parent="."]
 
 [connection signal="ready" from="." to="." method="_ready"]
+[connection signal="ready" from="TimerCliente" to="." method="_on_timer_cliente_ready"]
 [connection signal="timeout" from="TimerCliente" to="." method="_on_timer_cliente_timeout"]
