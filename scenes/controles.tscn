@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://d16wj14q5ufrt"]
+[gd_scene load_steps=6 format=3 uid="uid://d16wj14q5ufrt"]
 
 [ext_resource type="Texture2D" uid="uid://burykj3uo3fr3" path="res://assets/tela adicional.png" id="1_ky0m0"]
 [ext_resource type="Texture2D" uid="uid://t3ce61srrx66" path="res://assets/teclas.png" id="2_3a823"]
 [ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_wu414"]
 [ext_resource type="PackedScene" uid="uid://dtvm15wuesnnq" path="res://scenes/objetos/botao_voltar.tscn" id="4_mefj8"]
+[ext_resource type="Texture2D" uid="uid://c6hlnau0ns3u7" path="res://assets/acoes.png" id="5_r6rdt"]
 
 [node name="controles" type="Node2D"]
 
 [node name="TelaAdicional" type="Sprite2D" parent="."]
-position = Vector2(577, 326)
+position = Vector2(-6, 5)
 texture = ExtResource("1_ky0m0")
 
 [node name="Teclas" type="Sprite2D" parent="TelaAdicional"]
@@ -17,24 +18,40 @@ scale = Vector2(0.912811, 0.88191)
 texture = ExtResource("2_3a823")
 
 [node name="titulo" type="Label" parent="."]
-offset_left = 433.0
-offset_top = 8.0
-offset_right = 686.0
-offset_bottom = 94.0
+offset_left = -150.0
+offset_top = -313.0
+offset_right = 103.0
+offset_bottom = -227.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wu414")
 theme_override_font_sizes/font_size = 150
 text = "Controles"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 262.0
-offset_top = 240.0
-offset_right = 509.0
-offset_bottom = 286.0
+offset_left = -321.0
+offset_top = -81.0
+offset_right = -74.0
+offset_bottom = -35.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wu414")
 theme_override_font_sizes/font_size = 80
 text = "Setas do teclado:"
 
+[node name="Label" type="Label" parent="Label"]
+offset_top = 123.0
+offset_right = 247.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wu414")
+theme_override_font_sizes/font_size = 80
+text = "Açoes:"
+
 [node name="botaoVoltar" parent="." instance=ExtResource("4_mefj8")]
-position = Vector2(959, 15)
+position = Vector2(376, -306)
+
+[node name="Acoes" type="Sprite2D" parent="."]
+position = Vector2(103, 64)
+scale = Vector2(0.867876, 0.797297)
+texture = ExtResource("5_r6rdt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
