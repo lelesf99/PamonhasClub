@@ -9781,7 +9781,7 @@ AmeliaScene = ExtResource("4_0es6e")
 BobScene = ExtResource("5_g7xjj")
 
 [node name="timer_game" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 180.0
 one_shot = true
 autostart = true
 

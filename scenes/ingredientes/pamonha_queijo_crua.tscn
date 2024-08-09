@@ -34,7 +34,8 @@ func set_disabled(value: bool):
 
 [node name="PamonhaQueijoCrua" type="Node2D" groups=["ingrediente"]]
 script = SubResource("GDScript_ri4po")
-tempo_pra_cozir = 15
+tempo_pra_cozir = 10
+tempo_pra_queimar = 4
 
 [node name="Interativo" parent="." instance=ExtResource("1_jdm8j")]
 
