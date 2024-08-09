@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c64nq6fp1bomw"]
+[gd_scene load_steps=18 format=3 uid="uid://c64nq6fp1bomw"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_42yny"]
 [ext_resource type="Texture2D" uid="uid://dbn11fhy1wn7h" path="res://menu.png" id="2_0x887"]
@@ -41,6 +41,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c7v6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_siwkd"]
+font = ExtResource("3_ycipg")
+font_size = 96
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -142,3 +146,11 @@ theme_override_font_sizes/font_size = 150
 text = "Pamonha's Club"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -177.0
+offset_top = 238.0
+offset_right = 175.0
+offset_bottom = 280.0
+label_settings = SubResource("LabelSettings_siwkd")

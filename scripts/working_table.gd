@@ -27,15 +27,15 @@ func action1(mao):
 				$Content.get_child(0).queue_free()
 				coisa.queue_free()
 				var instance = combo.instantiate()
+				instance.set_disabled(true);
 				$Content.add_child(instance)
 				return
 	
 	if  mao.get_child_count() == 0 && $Content.get_child_count() != 0:
-		if $Content.get_child_count() > 0:
-			var coisa = $Content.get_child(0)
-			coisa.set_disabled(true)
-			coisa.reparent(mao)
-			return
+		var coisa = $Content.get_child(0)
+		coisa.set_disabled(true)
+		coisa.reparent(mao)
+		return
 
-func action2():
+func action2(mao):
 	pass;

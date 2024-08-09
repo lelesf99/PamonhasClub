@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://k447k5gb6v4q"]
+
+[ext_resource type="Script" path="res://scripts/livro_receitas.gd" id="1_av2tr"]
+[ext_resource type="Texture2D" uid="uid://dad11bxcdejf0" path="res://assets/folha_livro_receitas.png" id="2_52fcx"]
+[ext_resource type="FontFile" uid="uid://df5k8h3f2gkcf" path="res://fonte/gameover.ttf" id="3_wsf8e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnrcr"]
+font = ExtResource("3_wsf8e")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="LivroReceitas" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_av2tr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -290.5
+offset_right = 315.0
+offset_bottom = 290.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_52fcx")
+patch_margin_left = 10
+patch_margin_top = 4
+patch_margin_right = 10
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect/ScrollContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="Control/NinePatchRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Livro de receitas da Lurdes"
+label_settings = SubResource("LabelSettings_bnrcr")
+
+[node name="Titulo_receita" type="RichTextLabel" parent="Control/NinePatchRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font=fonte/gameover.ttf]
+[font size=64]
+[color=black]
+Pamonha simples 	[img=64x64]assets/pamonha_simples_crua.png[/img]
+
+- Ingredientes:
+   -1 Milho com palha
+- Como fazer:
+    - 1. Despalhar o milho
+    - 2. Ralar o milho
+    - 3. Juntar o milho com a palha
+    - 4. Cozinhar por 30 min
+    - 5. Servir quentinha 
+[/color]"
+fit_content = true
+
+[node name="Titulo_receita2" type="RichTextLabel" parent="Control/NinePatchRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font=fonte/gameover.ttf]
+[font size=64]
+[color=black]
+Pamonha de queijo 	[img=64x64]assets/pamonha_queijo_crua.png[/img]	
+
+- Ingredientes:
+   -1 Milho com palha
+   -1 Queijo
+- Como fazer:
+    - 1. Despalhar o milho
+    - 2. Ralar o milho
+	- 3. Cortar o queijo
+    - 4. Juntar o milho, a palha e o queijo
+    - 5. Cozinhar por 30 min
+    - 6. Servir quentinha 
+[/color]"
+fit_content = true

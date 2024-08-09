@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c72ativb36agl"]
+
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_jdm8j"]
+[ext_resource type="Texture2D" uid="uid://ci7vsgrxs84gr" path="res://assets/pamonha_queijo_crua.png" id="2_7j1ae"]
+
+[sub_resource type="GDScript" id="GDScript_ri4po"]
+script/source = "extends Node2D
+const ID = 273
+@export var tempo_pra_cozir = 25;
+@export var tempo_pra_queimar = 5;
+const cozido = preload(\"res://scenes/ingredientes/pamonha_queijo.tscn\")
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
+
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Interativo.disabled = value
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blhw1"]
+
+[node name="PamonhaQueijoCrua" type="Node2D" groups=["ingrediente"]]
+script = SubResource("GDScript_ri4po")
+tempo_pra_cozir = 4
+tempo_pra_queimar = 4
+
+[node name="Interativo" parent="." instance=ExtResource("1_jdm8j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_blhw1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
+texture = ExtResource("2_7j1ae")

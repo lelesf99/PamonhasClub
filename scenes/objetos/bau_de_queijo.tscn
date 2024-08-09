@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddmvy5g7fx0ge"]
+
+[ext_resource type="Script" path="res://scripts/bau_de_queijo.gd" id="1_ff5y0"]
+[ext_resource type="Texture2D" uid="uid://dyk5awdoij74j" path="res://assets/16_Grocery_Store_Singles_Shadowless_32x32/Grocery_Store_Singles_Shadowless_32x32_391.png" id="2_fcm5b"]
+
+[node name="Bau de queijo" type="Node2D" groups=["bau_de_queijo"]]
+script = ExtResource("1_ff5y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fcm5b")
+
+[node name="Queijos" type="Node" parent="."]

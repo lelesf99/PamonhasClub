@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cwtr75qngk450"
-path="res://.godot/imported/E O Amor (Karaoke).wav-b3b7e6fd1d333d047e219ce2642b379f.sample"
+path="res://.godot/imported/E O Amor (Karaoke).WAV-807f91f162dd554cc0b6267a6d0468eb.sample"
 
 [deps]
 
-source_file="res://Trilha Sonora/E O Amor (Karaoke).wav"
-dest_files=["res://.godot/imported/E O Amor (Karaoke).wav-b3b7e6fd1d333d047e219ce2642b379f.sample"]
+source_file="res://Trilha Sonora/E O Amor (Karaoke).WAV"
+dest_files=["res://.godot/imported/E O Amor (Karaoke).WAV-807f91f162dd554cc0b6267a6d0468eb.sample"]
 
 [params]
 

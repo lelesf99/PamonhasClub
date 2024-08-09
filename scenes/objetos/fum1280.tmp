@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bor1rwwxrj4s6"]
+
+[ext_resource type="Script" path="res://scripts/fumaca.gd" id="1_367u1"]
+[ext_resource type="Texture2D" uid="uid://beexgdvffq3a0" path="res://assets/extintor_particle.png" id="2_4ib7h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqepk"]
+radius = 4.0
+
+[node name="Fumaca" type="Area2D" groups=["fumaca_extintor"]]
+collision_layer = 16384
+collision_mask = 16384
+script = ExtResource("1_367u1")
+life_time = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fqepk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_4ib7h")

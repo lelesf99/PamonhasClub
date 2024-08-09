@@ -16,6 +16,9 @@ var distancia_fila = 40
 @export var posicao_balcao = Vector2.ZERO
 @onready var fila_balcao = $FilaBalcao
 var primeira_pamonha_entregue = false
+@onready var livro_receitas = $LivroReceitas
+@onready var timer_game = $timer_game
+
 
 func _ready():
 	cliente_scenes.push_back(AdamScene)
@@ -30,6 +33,9 @@ func _ready():
 	
 	
 func _process(delta):
+	if Input.is_action_just_pressed("livro_receitas"):
+		livro_receitas.visible = !livro_receitas.visible;
+		
 	if Global.hints != $ActionHints.hints:
 		$ActionHints.hints = Global.hints;
 		$ActionHints.update_hints()
@@ -117,3 +123,15 @@ func _novo_cliente():
 	add_child(new_client)
 	clientes_na_fila.append(new_client)
 
+func save():
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var json_string = JSON.stringify({"score": $UICanva2/UI/ScoreLabel.score})
+	# Store the save dictionary as a new line in the save file.
+	save_file.store_line(json_string)
+
+
+	
+func _on_timer_game_timeout():
+	save();
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+#Carregar tela de fim de jogo

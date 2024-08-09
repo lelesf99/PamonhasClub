@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbpfp7xyra0lh"]
+
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_keaeo"]
+[ext_resource type="Texture2D" uid="uid://ma25hnwnfmmn" path="res://assets/palha_com_milho_cortado.png" id="2_c0o47"]
+
+[sub_resource type="GDScript" id="GDScript_oqjal"]
+script/source = "extends Node2D
+const ID = 91
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Interativo.disabled = value
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2jfl"]
+height = 34.0
+
+[node name="PalhaComqueijoCortado" type="Node2D" groups=["ingrediente"]]
+script = SubResource("GDScript_oqjal")
+
+[node name="Interativo" parent="." instance=ExtResource("1_keaeo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+rotation = -0.785398
+shape = SubResource("CapsuleShape2D_t2jfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_c0o47")

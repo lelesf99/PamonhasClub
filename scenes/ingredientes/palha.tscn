@@ -33,10 +33,8 @@ radius = 8.0
 script = SubResource("GDScript_oqjal")
 
 [node name="Interativo" parent="." instance=ExtResource("1_5bu2x")]
-position = Vector2(-4, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
-position = Vector2(6, 6)
 rotation = -0.785398
 shape = SubResource("CapsuleShape2D_w1hcp")
 

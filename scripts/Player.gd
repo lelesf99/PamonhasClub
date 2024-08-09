@@ -33,7 +33,10 @@ func _physics_process(delta):
 	var directionY = Input.get_axis("move_up", "move_down");
 	if directionX || directionY:
 		velocity = Vector2(directionX, directionY).normalized() * SPEED;
-		$Interaction.position = Vector2(directionX, directionY) * 32 + Vector2(0.0, 8.0);
+		$Interaction.position = Vector2(directionX, directionY) * 32;
+		if abs(directionX) && !abs(directionY):
+			$Interaction.position = $Interaction.position + Vector2(0.0, 16);
+		$Interaction.rotation = Vector2(directionX, directionY).angle();
 		if $Mao1.position.y >= 1:
 			$Mao1.show_behind_parent = false;
 		else:

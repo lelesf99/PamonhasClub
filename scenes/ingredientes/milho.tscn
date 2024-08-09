@@ -9,6 +9,9 @@ const ID = 5
 const hints = [
 	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
 ]
+@export var tempo_de_ralar = 4;
+const ralado = preload(\"res://scenes/ingredientes/milho_ralado.tscn\");
+
 func action1(mao):
 	global_position = mao.global_position
 	rotation = 0
@@ -20,6 +23,11 @@ func action1(mao):
 		reparent(get_tree().root)
 
 func action2(mao):
+	if get_parent().is_in_group(\"ralador\"):
+		get_parent().set_hints([
+			{\"label\": \"Ralar\", \"type\": \"key\", \"key_label\": \"2\"}
+		])
+		get_parent().action2(mao)
 	return self
 
 func set_disabled(value: bool):
@@ -33,10 +41,8 @@ radius = 8.0
 script = SubResource("GDScript_vceeb")
 
 [node name="Interativo" parent="." instance=ExtResource("1_xaqlo")]
-position = Vector2(-7, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
-position = Vector2(6, 6)
 rotation = -0.785398
 shape = SubResource("CapsuleShape2D_ko0p2")
 

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c64qb77p2h20a"]
+
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_hcy5t"]
+[ext_resource type="Texture2D" uid="uid://s56lesylgm1g" path="res://assets/queijo_cortado.png" id="2_psqq6"]
+
+[sub_resource type="GDScript" id="GDScript_ia4t2"]
+script/source = "extends Node2D
+const ID = 13
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
+
+func action1(mao):
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Interativo.disabled = value
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1br1"]
+
+[node name="QueijoCortado" type="Node2D" groups=["ingrediente", "queijo_cortado"]]
+script = SubResource("GDScript_ia4t2")
+
+[node name="Interativo" parent="." instance=ExtResource("1_hcy5t")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+shape = SubResource("RectangleShape2D_j1br1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_psqq6")

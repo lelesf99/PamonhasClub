@@ -28,6 +28,6 @@ func stop_music():
 
 func _on_music_finished():
 	print("finished", current)
-	current = current + 1;
+	current = (current + 1) % musicas.size();
 	music_player.stream = musicas[current];
 	music_player.play();

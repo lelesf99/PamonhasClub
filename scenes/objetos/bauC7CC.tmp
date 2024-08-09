@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpou64j8n3m4v"]
+
+[ext_resource type="Script" path="res://scripts/Bau de milho.gd" id="1_bmxoa"]
+[ext_resource type="Texture2D" uid="uid://dyk5awdoij74j" path="res://assets/16_Grocery_Store_Singles_Shadowless_32x32/Grocery_Store_Singles_Shadowless_32x32_391.png" id="2_7a2vt"]
+
+[node name="Bau de milho" type="Node2D" groups=["bau_de_milho"]]
+position = Vector2(51, 50)
+script = ExtResource("1_bmxoa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7a2vt")
+
+[node name="Milhos" type="Node" parent="."]

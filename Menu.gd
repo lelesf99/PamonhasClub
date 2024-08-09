@@ -1,6 +1,9 @@
 extends Control
 	
 func _ready():
+	var best = Global.get_best()
+	if best != null:
+		$Label2.text = " Seu melhor foi: " + str(max(best, 0.0)); 
 	for button in get_tree().get_nodes_in_group("button"):
 		button.connect("pressed", self.on_button_pressed.bind(button))
 		button.connect("mouse_exited", self.mouse_interaction.bind(button, "exited"))

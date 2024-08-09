@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgrg7a0aisvto"]
+
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_46ry0"]
+[ext_resource type="Texture2D" uid="uid://yhdts4ksokb5" path="res://assets/milho_ralado_com_queijo_cortado.png" id="2_maeks"]
+
+[sub_resource type="GDScript" id="GDScript_oqjal"]
+script/source = "extends Node2D
+const ID = 91
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
+func action1(mao):
+	global_position = mao.global_position
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	return self
+
+func set_disabled(value: bool):
+	$Interativo.disabled = value
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfl5k"]
+size = Vector2(32, 32)
+
+[node name="MilhoRaladoComQueijoCortado" type="Node2D" groups=["ingrediente"]]
+script = SubResource("GDScript_oqjal")
+
+[node name="Interativo" parent="." instance=ExtResource("1_46ry0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+shape = SubResource("RectangleShape2D_gfl5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_maeks")

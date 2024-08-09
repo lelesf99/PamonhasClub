@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://djtahmdtbi3oo"]
+[gd_scene load_steps=4 format=3 uid="uid://djtahmdtbi3oo"]
 
 [ext_resource type="Texture2D" uid="uid://bi4fli23af3d8" path="res://assets/estufa.png" id="1_kq58c"]
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="2_xxmbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l70hg"]
 size = Vector2(153, 31)
@@ -23,3 +24,6 @@ scale = Vector2(1.05063, 1.06667)
 texture = ExtResource("1_kq58c")
 vframes = 13
 frame = 12
+
+[node name="Interativo" parent="." instance=ExtResource("2_xxmbk")]
+position = Vector2(-112, 56)

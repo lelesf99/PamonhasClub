@@ -11,6 +11,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func update_score():
-	score += 100
+func update_score(score_add = 100):
+	score += score_add
 	text = "Score: %s" % score

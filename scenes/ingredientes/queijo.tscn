@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://j02c8dctwjre"]
+
+[ext_resource type="PackedScene" uid="uid://inyorttohhcr" path="res://scenes/interativo.tscn" id="1_px4ba"]
+[ext_resource type="Texture2D" uid="uid://bao81wekcm8km" path="res://assets/queijo.png" id="2_at75h"]
+
+[sub_resource type="GDScript" id="GDScript_ia4t2"]
+script/source = "extends Node2D
+const ID = 11
+const hints = [
+	{\"label\": \"Pegar\", \"type\": \"key\", \"key_label\": \"1\"}
+]
+@export var tempo_de_ralar = 6;
+const ralado = preload(\"res://scenes/ingredientes/queijo_cortado.tscn\");
+
+func action1(mao):
+	rotation = 0
+	if mao.get_child_count() == 0:
+		set_disabled(true)
+		reparent(mao)
+	else:
+		set_disabled(false)
+		reparent(get_tree().root)
+
+func action2(mao):
+	if get_parent().is_in_group(\"ralador\"):
+		get_parent().set_hints([
+			{\"label\": \"Cortar\", \"type\": \"key\", \"key_label\": \"2\"}
+		]);
+		get_parent().action2(mao)
+	return self
+
+func set_disabled(value: bool):
+	$Interativo.disabled = value
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoewu"]
+size = Vector2(22, 14)
+
+[node name="Queijo" type="Node2D" groups=["ingrediente", "queijo"]]
+script = SubResource("GDScript_ia4t2")
+
+[node name="Interativo" parent="." instance=ExtResource("1_px4ba")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interativo"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_hoewu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interativo"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_at75h")

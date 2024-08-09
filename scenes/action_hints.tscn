@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca154rk704fw3"]
+[gd_scene load_steps=3 format=3 uid="uid://ca154rk704fw3"]
 
 [ext_resource type="Script" path="res://scripts/action_hints.gd" id="1_7ceoy"]
+[ext_resource type="PackedScene" uid="uid://covo1tkfy1qnv" path="res://scenes/hint.tscn" id="2_v3s5r"]
 
 [node name="ActionHints" type="CanvasLayer"]
 script = ExtResource("1_7ceoy")
+
+[node name="Hint" parent="." instance=ExtResource("2_v3s5r")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 256.0
+offset_top = 520.0
+offset_right = 384.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
+label = "Receitas"
+key_label = "R"
 
 [node name="Hints" type="HBoxContainer" parent="."]
 anchors_preset = 2
